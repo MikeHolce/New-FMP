@@ -50,13 +50,16 @@ public class enemyBehaviour : MonoBehaviour
             canAttack = true;
             Debug.Log("can attack");
         }
-
+        else
+        {
+            canAttack = false;
+        }
 
 
 
         if(canAttack == true)
         {
-            if (loopCounter >= 25)
+            if (loopCounter >= 100)
             {
                 Character.playerHealth -= 1;
                 Debug.Log("damage");

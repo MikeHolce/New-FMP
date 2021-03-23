@@ -11,16 +11,22 @@ public class Character : MonoBehaviour
     Vector3 foward, right;
 
 
-
+    public GameObject Collide;
 
     // Player Health
     // call data script
     static public float playerHealth;
     public float healthCheck;
 
+    public bool isClicked;
+
 
     void Start()
     {
+
+        Collide.SetActive(false);
+
+
 
         foward = Camera.main.transform.forward; // Set forward to equal the camera's forward vector
         foward.y = 0; // make sure y is 0
@@ -47,6 +53,14 @@ public class Character : MonoBehaviour
         if (Input.anyKey) // only execute if a key is being pressed
             Move();
 
+
+        if (Input.GetMouseButtonDown(0))
+        {
+
+            StartCoroutine(Waiting());
+        }
+
+
     }
 
 
@@ -58,4 +72,14 @@ public class Character : MonoBehaviour
         transform.position += rightMovement; // move our transform's position right/left
         transform.position += upMovement; // Move our transform's position up/down
     }
+
+    IEnumerator Waiting()
+    {
+
+        Collide.SetActive(true);
+        yield return new WaitForSeconds(1);
+        Collide.SetActive(false);
+        StopCoroutine(Waiting());
+    }
+
 }
