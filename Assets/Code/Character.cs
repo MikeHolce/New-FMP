@@ -18,7 +18,7 @@ public class Character : MonoBehaviour
     static public float playerHealth;
     public float healthCheck;
 
-    public bool isClicked;
+    public bool mouseClicked;
 
 
     void Start()
@@ -54,10 +54,11 @@ public class Character : MonoBehaviour
             Move();
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && mouseClicked == false)
         {
 
             StartCoroutine(Waiting());
+            mouseClicked = true;
         }
 
 
@@ -79,7 +80,17 @@ public class Character : MonoBehaviour
         Collide.SetActive(true);
         yield return new WaitForSeconds(1);
         Collide.SetActive(false);
+        yield return new WaitForSeconds(1);
         StopCoroutine(Waiting());
+        mouseClicked = false;
     }
 
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
