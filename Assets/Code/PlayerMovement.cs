@@ -60,6 +60,9 @@ public class PlayerMovement : MonoBehaviour
 
             moveDirection *= moveSpeed;
         }
+        else
+        {
+        }
 
         controller.Move(moveDirection * Time.deltaTime);
 
