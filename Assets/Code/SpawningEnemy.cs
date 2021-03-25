@@ -20,16 +20,20 @@ public class SpawningEnemy : MonoBehaviour
 
     public bool Activate;
     public bool Spawn;
+    public bool Unlock;
 
     public int Counter;
-
+    static public int Kills;
 
     // Start is called before the first frame update
     void Start()
     {
         Activate = false;
         Spawn = false;
+        Unlock = false;
+
         Counter = 0;
+        Kills = 0;
     }
 
     // Update is called once per frame
@@ -46,6 +50,7 @@ public class SpawningEnemy : MonoBehaviour
         {
             Spawn = true;
             Activate = false;
+            Unlock = false;
             Counter += 1;
 
 
@@ -63,6 +68,21 @@ public class SpawningEnemy : MonoBehaviour
             Instantiate(doorR, R.position, R.rotation);
         }
 
+
+        if (Kills >= 1)
+        {
+            Unlock = true;
+        }
+
+
+        if (Unlock == true)
+        {
+            Destroy(GameObject.FindWithTag("Door"));
+            Spawn = false;
+
+        }
+
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -72,4 +92,13 @@ public class SpawningEnemy : MonoBehaviour
             Activate = true;
         }
     }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.name == "Player")
+        {
+            Kills = 0;
+            Counter = 0;
+        }
+    }
+
 }

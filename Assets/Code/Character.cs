@@ -91,6 +91,7 @@ public class Character : MonoBehaviour
         if (other.tag == "Enemy")
         {
             Destroy(other.gameObject);
+            SpawningEnemy.Kills += 1;
         }
     }
 }
