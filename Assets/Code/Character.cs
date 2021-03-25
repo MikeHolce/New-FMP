@@ -9,9 +9,11 @@ public class Character : MonoBehaviour
     [SerializeField]
     float moveSpeed = 4f; //Change in inspector to adjust move speedVector3 forward, right; // Keeps track of our relative forward and right vectorsvoid Start()
     Vector3 foward, right;
+    public CharacterController characterController;
 
-
-
+    //gravity
+    private float verticalSpeed = 0;
+    private float gravity = 9.87f;
 
     // Player Health
     // call data script
@@ -57,5 +59,15 @@ public class Character : MonoBehaviour
         Vector3 upMovement = foward * moveSpeed * Time.deltaTime * Input.GetAxis("VerticalKey"); // Up movement uses the forward vector, movement speed, and the vertical axis inputs.Vector3 heading = Vector3.Normalize(rightMovement + upMovement); // This creates our new direction. By combining our right and forward movements and normalizing them, we create a new vector that points in the appropriate direction with a length no greater than 1.0transform.forward = heading; // Sets forward direction of our game object to whatever direction we're moving in
         transform.position += rightMovement; // move our transform's position right/left
         transform.position += upMovement; // Move our transform's position up/down
+        
+        if (characterController.isGrounded)
+        {
+            verticalSpeed = 0;
+        }
+        else
+        {
+            verticalSpeed -= gravity * Time.deltaTime;
+        }
     }
+
 }
