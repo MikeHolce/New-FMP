@@ -1,28 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System.Diagnostics;
+
+[DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
 
 public class PlayerMovement : MonoBehaviour
 {
-    //VARIABLES
     [SerializeField] private float moveSpeed;
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
-
-    private Vector3 moveDirection;
-    private Vector3 velocity;
-
-    //REFERENCES
-    private CharacterController controller;
-
     [SerializeField] private bool isGrounded;
     [SerializeField] private float groundCheckDistance;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private float Gravity;
 
+    private Vector3 moveDirection;
+    private Vector3 velocity;
+    private CharacterController controller;
+
+
+
     private void start()
     {
-        controller = GetComponent<CharacterController>(); 
+        controller = GetComponent<CharacterController>();
 
     }
 
@@ -35,26 +33,38 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
 
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
         float moveZ = Input.GetAxis("Virticle");
 
         moveDirection = new Vector3(0, 0, moveZ);
-       
-        if(moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
-        {
-            Walk();
 
-        }
-        else if (moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
+        if (isGrounded)
         {
-            Run();
-        }
-        else if (moveDirection == Vector3.zero)
-        {
-            Idle();
+            if (moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
+            {
+                Walk();
+
+            }
+            else if (moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
+            {
+                Run();
+            }
+            else if (moveDirection == Vector3.zero)
+            {
+                Idle();
+            }
+
+            moveDirection *= moveSpeed;
         }
 
-        moveDirection *= moveSpeed;
         controller.Move(moveDirection * Time.deltaTime);
+
+        velocity.y += Gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
     }
 
     private void Idle()
@@ -63,10 +73,15 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Walk()
     {
-        moveSpeed == walkSpeed;
+        moveSpeed = walkSpeed;
     }
     private void Run()
     {
-        moveSpeed == runSpeed;
+        moveSpeed = runSpeed;
+    }
+
+    private string GetDebuggerDisplay()
+    {
+        return ToString();
     }
 }
