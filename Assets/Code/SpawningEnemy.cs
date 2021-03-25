@@ -79,6 +79,7 @@ public class SpawningEnemy : MonoBehaviour
         {
             Destroy(GameObject.FindWithTag("Door"));
             Spawn = false;
+            Unlock = false;
 
         }
 
