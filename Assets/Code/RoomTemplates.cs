@@ -13,7 +13,4 @@ public class RoomTemplates : MonoBehaviour
     public GameObject closedRoom;
 
 
-    public GameObject LBRConnect;
-    public GameObject LTRConnect;
-
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemyBehaviour : MonoBehaviour
 
 {
-    private Transform Player;
+    public Transform Player;
     private float dist;
     public float moveSpeed;
     public float howclose;
