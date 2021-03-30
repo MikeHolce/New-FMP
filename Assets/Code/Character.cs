@@ -84,14 +84,4 @@ public class Character : MonoBehaviour
         StopCoroutine(Waiting());
         mouseClicked = false;
     }
-
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Enemy")
-        {
-            Destroy(other.gameObject);
-            SpawningEnemy.Kills += 1;
-        }
-    }
 }

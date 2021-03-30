@@ -717,7 +717,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893937394}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -1136,7 +1136,7 @@ GameObject:
   - component: {fileID: 1022559002}
   m_Layer: 0
   m_Name: attackZone
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1149,7 +1149,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022559001}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
@@ -1670,6 +1670,7 @@ MonoBehaviour:
   Destroyerer: {fileID: 1852700484}
   Teleport: {fileID: 962636809}
   timer: 3
+  minusTime: 0.5
 --- !u!54 &1852700486
 Rigidbody:
   m_ObjectHideFlags: 0

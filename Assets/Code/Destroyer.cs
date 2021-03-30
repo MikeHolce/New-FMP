@@ -37,7 +37,7 @@ public class Destroyer : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Destroy(other.gameObject);
-        if (timer <= 1)
+        if (timer <= 0)
         {
             Destroyerer.position = Teleport.position;  
         }
