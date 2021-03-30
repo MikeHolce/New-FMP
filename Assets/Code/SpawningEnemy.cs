@@ -62,10 +62,16 @@ public class SpawningEnemy : MonoBehaviour
             Spawn = false;
             Instantiate(Enemy, spawnZone.position, Quaternion.identity);
 
-            Instantiate(doorT, T.position, Quaternion.identity);
+           
+          
+            Instantiate(doorT, T.position, Quaternion.identity);       
             Instantiate(doorB, B.position, Quaternion.identity);
             Instantiate(doorL, L.position, L.rotation);
-            Instantiate(doorR, R.position, R.rotation);
+            Instantiate(doorR, R.position, R.rotation);  //this part is to rotate the doors on the left n right
+            
+
+
+
         }
 
 
@@ -86,6 +92,7 @@ public class SpawningEnemy : MonoBehaviour
 
     }
 
+
     void OnTriggerEnter(Collider other)
     {
         if(other.name == "Player")
@@ -99,7 +106,9 @@ public class SpawningEnemy : MonoBehaviour
         {
             Kills = 0;
             Counter = 0;
+            Destroy(this.gameObject);
         }
     }
+
 
 }

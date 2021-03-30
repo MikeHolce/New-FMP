@@ -8,7 +8,8 @@ public class Destroyer : MonoBehaviour
     public Transform Teleport;
 
     private bool startTimer;
-    public int timer = 2;
+    public float timer = 10;
+    public float minusTime = 0.5f;
 
 
     void Start()
@@ -20,9 +21,13 @@ public class Destroyer : MonoBehaviour
     {
         if (startTimer == true)
         {
-            timer -= 1;
+            timer -= Time.deltaTime * minusTime;
         }
         if (startTimer == false)
+        {
+            timer = 0;
+        }
+        if (timer <= 0)
         {
             timer = 0;
         }
