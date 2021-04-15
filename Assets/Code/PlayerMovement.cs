@@ -33,9 +33,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Move();
-
-        float angle = Mathf.Atan2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * Mathf.Rad2Deg;
-        transform.GetChild(0).rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     private void Move()
