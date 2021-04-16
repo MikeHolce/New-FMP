@@ -1,11 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationStateController : MonoBehaviour
-{
+{ 
     Animator animator;
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -15,29 +15,66 @@ public class AnimationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetAxis("HorizontalKey"))
+        {
+            animator.SetBool("isWalking", true);
+            animator.SetBool("isIdle", false);
+            animator.SetBool("isRunning", false);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isIdle", true);
+            animator.SetBool("isRunning", false);
+        }
 
-        // If player presses w
-        if (Input.GetKey("w"))
+        if (GetAxis("VerticalKey"))
         {
-            //Then the isWalking boolean is true
-            animator.SetBool("IsWalking", true);
+            animator.SetBool("isWalking", true);
+            animator.SetBool("isIdle", false);
+            animator.SetBool("isRunning", false);
         }
+        else
         {
-            // If the player is not pressing w
-            if (!Input.GetKey("w"))
-            {
-                //Then the is Walking boolean is false
-                animator.SetBool("IsWalking", false);
-            }
-            if (!Input.GetKey("left shift"))
-            {
-                animator.SetBool("IsRunning", false);
-            }
-            if (Input.GetKey("left shift"))
-            {
-                animator.SetBool("IsRunning", true);
-            }
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isIdle", true);
+            animator.SetBool("isRunning", false);
         }
+        if (GetAxis("HorizontalKey") && GetKey("Left Shift"))
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isIdle", false);
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isIdle", true);
+            animator.SetBool("isRunning", false);
+        }
+        if (GetAxis("VerticalKey") && GetKey("Left Shift"))
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isIdle", false);
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isIdle", true);
+            animator.SetBool("isRunning", false);
+        }
+
+    }
+
+    private bool GetKey(string v)
+    {
+        throw new NotImplementedException();
+    }
+
+    private bool GetAxis(string v)
+    {
+        throw new NotImplementedException();
     }
 }
 
