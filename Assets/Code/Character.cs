@@ -33,7 +33,6 @@ public class Character : MonoBehaviour
         forward = Vector3.Normalize(forward); // make sure the length of vector is set to a max of 1.0
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward; // set the right-facing vector to be facing right relative to the camera's forward vector
 
-
         playerHealth = 5;
     }
 
