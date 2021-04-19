@@ -22,7 +22,7 @@ public class Character : MonoBehaviour
 
     public bool mouseClicked;
 
-
+    // Start is called before the first frame update
     void Start()
     {
 
@@ -37,7 +37,7 @@ public class Character : MonoBehaviour
     }
 
 
-
+    // Update is called once per frame
     void Update()
     {
 
