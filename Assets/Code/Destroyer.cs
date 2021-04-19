@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
-    public Transform Destroyerer;
-    public Transform Teleport;
+    
 
     private bool startTimer;
-    public int timer = 2;
+    public float timer = 3;
+    public float minusTime = 0.5f;
 
 
     void Start()
@@ -20,9 +20,13 @@ public class Destroyer : MonoBehaviour
     {
         if (startTimer == true)
         {
-            timer -= 1;
+            timer -= Time.deltaTime * minusTime;
         }
-        if (startTimer == false)
+        if (timer == 0)
+        {
+            startTimer = false;
+        }
+        if (timer <= 0)
         {
             timer = 0;
         }
@@ -32,9 +36,9 @@ public class Destroyer : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Destroy(other.gameObject);
-        if (timer <= 1)
+        if (timer == 0)
         {
-            Destroyerer.position = Teleport.position;  
+            this.transform.position = new Vector3(0, -20, 0);
         }
     }
 

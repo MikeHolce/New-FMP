@@ -20,7 +20,7 @@ public class PauseMenuScript : MonoBehaviour
         {
             PauseMenu.enabled = !PauseMenu.enabled;
             if (PauseMenu.enabled == true)
-
+                
             {
                 PauseGame();
             }
