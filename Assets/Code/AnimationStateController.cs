@@ -19,50 +19,22 @@ public class AnimationStateController : MonoBehaviour
         {
             animator.SetBool("isWalking", true);
             animator.SetBool("isIdle", false);
-            animator.SetBool("isRunning", false);
         }
         else
         {
             animator.SetBool("isWalking", false);
             animator.SetBool("isIdle", true);
-            animator.SetBool("isRunning", false);
         }
 
         if (GetAxis("VerticalKey"))
         {
             animator.SetBool("isWalking", true);
             animator.SetBool("isIdle", false);
-            animator.SetBool("isRunning", false);
         }
         else
         {
             animator.SetBool("isWalking", false);
             animator.SetBool("isIdle", true);
-            animator.SetBool("isRunning", false);
-        }
-        if (GetAxis("HorizontalKey") && GetKey("Left Shift"))
-        {
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isIdle", false);
-            animator.SetBool("isRunning", true);
-        }
-        else
-        {
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isIdle", true);
-            animator.SetBool("isRunning", false);
-        }
-        if (GetAxis("VerticalKey") && GetKey("Left Shift"))
-        {
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isIdle", false);
-            animator.SetBool("isRunning", true);
-        }
-        else
-        {
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isIdle", true);
-            animator.SetBool("isRunning", false);
         }
 
     }
