@@ -13,8 +13,6 @@ public class healthBar : MonoBehaviour
     public Sprite HealthBar6;
     public Image HealthBarImage;
     public static int curHealth;
-    public static int curmana;
-    public int Counter;
     public Canvas DeathCanvas;
     public Canvas HealthCanvas;
     public Canvas EndCanvas;
@@ -26,7 +24,6 @@ public class healthBar : MonoBehaviour
         curHealth = 5;
         DeathCanvas.enabled = false;
         EndCanvas.enabled = false;
-        Counter = 3;
     }
 
     // Update is called once per frame
@@ -62,7 +59,10 @@ public class healthBar : MonoBehaviour
             HealthBarImage.sprite = HealthBar6;
         }
 
-
+        if (Input.GetKeyDown("space"))
+        {
+            curHealth -= 1;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -81,7 +81,7 @@ public class healthBar : MonoBehaviour
             curHealth -= 2;
         }
         {
-            if (other.name == "Potion")
+            if (other.name == "healthup")
             {
                 Destroy(other.gameObject);
                 curHealth += 1;
