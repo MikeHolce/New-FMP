@@ -28,18 +28,22 @@ public class Destroyer : MonoBehaviour
         }
         if (timer <= 0)
         {
-            timer = 0;
+            this.transform.position = new Vector3(0, 90, 0);
+            minusTime = 0;
         }
+
+
+
+
+
+
     }
 
 
     void OnTriggerEnter(Collider other)
     {
         Destroy(other.gameObject);
-        if (timer == 0)
-        {
-            this.transform.position = new Vector3(0, -20, 0);
-        }
+
     }
 
 }

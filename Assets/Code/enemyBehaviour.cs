@@ -43,6 +43,8 @@ public class enemyBehaviour : MonoBehaviour
 
     public bool canAttack;
 
+    public float redCounter;
+
 
 
     // Start is called before the first frame update
@@ -107,15 +109,25 @@ public class enemyBehaviour : MonoBehaviour
 
         if (canAttack == true)
         {
+            regBool = false;
             chargeBool = true;
             loopCounter += 0.1f;
-            if (loopCounter >= 10)
+            redCounter += 0.1f;
+            if (loopCounter >= 10)             // counter goes up when it gets to 10 it does 1 damage to the player before u have to wait till recieving more damage
             {
+                chargeBool = false;
                 attackBool = true;
                 Character.playerHealth -= 1;
                 Debug.Log("damage");
                 loopCounter = 0;
 
+            }
+            if (redCounter >= 12)
+            {
+                Debug.Log("change red");
+                attackBool = false;
+                regBool = true;
+                redCounter = 0;
             }
         }
 
@@ -159,7 +171,7 @@ public class enemyBehaviour : MonoBehaviour
     }
 
 
-
+    // changed version of move
     /**
     private void FixedUpdate()
     {
