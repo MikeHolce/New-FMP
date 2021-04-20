@@ -10,8 +10,12 @@ public class healthBar : MonoBehaviour
     public Sprite healthBar3;
     public Sprite healthBar4;
     public Sprite healthBar5;
+    public Sprite healthBar6;
     public Image healthBarImage;
     public float curHealth;
+
+    public static Canvas deathMenu;
+    public static bool paused;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +49,15 @@ public class healthBar : MonoBehaviour
                     if (curHealth < 2 && curHealth > 0)
                     {
                         healthBarImage.sprite = healthBar5;
+                       
+                    }
+                    else
+                    {
+                        if (curHealth < 0 && curHealth > 0.1)
+                        {
+                            healthBarImage.sprite = healthBar6;
+
+                        }
                     }
                 }
             }
