@@ -5,62 +5,91 @@ using UnityEngine.UI;
 
 public class healthBar : MonoBehaviour
 {
-    public Sprite healthBar1;
-    public Sprite healthBar2;
-    public Sprite healthBar3;
-    public Sprite healthBar4;
-    public Sprite healthBar5;
-    public Sprite healthBar6;
-    public Image healthBarImage;
-    public float curHealth;
-
-    public static Canvas deathMenu;
-    public static bool paused;
+    public Sprite HealthBarFull;
+    public Sprite HealthBar2;
+    public Sprite HealthBar3;
+    public Sprite HealthBar4;
+    public Sprite HealthBar5;
+    public Sprite HealthBar6;
+    public Image HealthBarImage;
+    public static int curHealth;
+    public static int curmana;
+    public int Counter;
+    public Canvas DeathCanvas;
+    public Canvas HealthCanvas;
+    public Canvas EndCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        healthBarImage.sprite = healthBar1;
-        curHealth = 10.0f;
+        HealthBarImage.sprite = HealthBarFull;
+        curHealth = 5;
+        DeathCanvas.enabled = false;
+        EndCanvas.enabled = false;
+        Counter = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
-        curHealth -= 0.1f;
-        if (curHealth < 8 && curHealth > 6)
+        if (curHealth == 0)
         {
-            healthBarImage.sprite = healthBar2;
+            HealthBarImage.sprite = HealthBar5;
+            DeathCanvas.enabled = true;
+        }
+        if (curHealth == 5)
+        {
+            HealthBarImage.sprite = HealthBarFull;
+        }
+        if (curHealth == 4)
+        {
+            HealthBarImage.sprite = HealthBar2;
+        }
+        if (curHealth == 3)
+        {
+            HealthBarImage.sprite = HealthBar3;
+        }
+        if (curHealth == 2)
+        {
+            HealthBarImage.sprite = HealthBar4;
+        }
+        if (curHealth == 1)
+        {
+            HealthBarImage.sprite = HealthBar5;
+        }
+        if (curHealth == 0)
+        {
+            HealthBarImage.sprite = HealthBar6;
+        }
+
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "DangerEnd")
+        {
+            curHealth -= 5;
         }
         else
+        if (other.name == "Trap")
         {
-            if (curHealth < 6 && curHealth > 4)
+            curHealth -= 1;
+        }
+        if (other.tag == "Enemy")
+        {
+            curHealth -= 2;
+        }
+        {
+            if (other.name == "Potion")
             {
-                healthBarImage.sprite = healthBar3;
+                Destroy(other.gameObject);
+                curHealth += 1;
             }
-            else
-            {
-                if (curHealth < 4 && curHealth > 2)
-                {
-                    healthBarImage.sprite = healthBar4;
-                }
-                else
-                {
-                    if (curHealth < 2 && curHealth > 0)
-                    {
-                        healthBarImage.sprite = healthBar5;
-                       
-                    }
-                    else
-                    {
-                        if (curHealth < 0 && curHealth > 0.1)
-                        {
-                            healthBarImage.sprite = healthBar6;
-
-                        }
-                    }
-                }
-            }
+        }
+        if (other.name == "End")
+        {
+            EndCanvas.enabled = true;
         }
     }
 }
