@@ -16,13 +16,14 @@ public class healthBar : MonoBehaviour
     public Canvas DeathCanvas;
     public Canvas HealthCanvas;
     public Canvas EndCanvas;
-
+    public static bool paused;
     // Start is called before the first frame update
     void Start()
     {
         HealthBarImage.sprite = HealthBarFull;
         curHealth = 5;
         DeathCanvas.enabled = false;
+        paused = false;
         EndCanvas.enabled = false;
     }
 
@@ -33,6 +34,10 @@ public class healthBar : MonoBehaviour
         {
             HealthBarImage.sprite = HealthBar5;
             DeathCanvas.enabled = true;
+            if (DeathCanvas.enabled == true)
+            {
+                PauseGame();
+            }
         }
         if (curHealth == 5)
         {
@@ -91,5 +96,10 @@ public class healthBar : MonoBehaviour
         {
             EndCanvas.enabled = true;
         }
+    }
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+        paused = true;
     }
 }
