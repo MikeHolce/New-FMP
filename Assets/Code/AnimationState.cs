@@ -40,6 +40,7 @@ public class AnimationState : MonoBehaviour
             anim.SetBool("isWalking", false);
         }
 
+
         if (Input.GetKey("s"))
         {
             anim.SetBool("isWalking", true);
