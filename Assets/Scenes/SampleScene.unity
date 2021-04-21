@@ -2235,7 +2235,6 @@ GameObject:
   - component: {fileID: 1340101244}
   - component: {fileID: 1340101243}
   - component: {fileID: 1340101242}
-  - component: {fileID: 1340101246}
   m_Layer: 5
   m_Name: HealthCanvas
   m_TagString: Untagged
@@ -2325,28 +2324,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1340101246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1340101241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7595f6de9e9f441b2106cf056754bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthBarFull: {fileID: 21300000, guid: d8fd581f919c4ea4ea1636e26f7fcf68, type: 3}
-  HealthBar2: {fileID: 21300000, guid: 45f78a54bf7329e42853ec5cbd44552f, type: 3}
-  HealthBar3: {fileID: 21300000, guid: e00dcedcc06f9bf4b936f11907b43643, type: 3}
-  HealthBar4: {fileID: 21300000, guid: 2e0d590cb429d344da52e53603c9510a, type: 3}
-  HealthBar5: {fileID: 21300000, guid: 6e57a488b53ebea4d925cf4d2a7312f1, type: 3}
-  HealthBar6: {fileID: 21300000, guid: 7b7e0a8182362fb4d8c7f297d8b0ecc8, type: 3}
-  HealthBarImage: {fileID: 481123801}
-  DeathCanvas: {fileID: 854645903}
-  HealthCanvas: {fileID: 1340101244}
-  EndCanvas: {fileID: 340489774}
 --- !u!1 &1341670169 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4839326004925796468, guid: b9eb510c331e4a641972129ae09e2f8c,
@@ -2366,6 +2343,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 745431708}
+--- !u!114 &1341670177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341670169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7595f6de9e9f441b2106cf056754bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthBarFull: {fileID: 21300000, guid: d8fd581f919c4ea4ea1636e26f7fcf68, type: 3}
+  HealthBar2: {fileID: 21300000, guid: 45f78a54bf7329e42853ec5cbd44552f, type: 3}
+  HealthBar3: {fileID: 21300000, guid: e00dcedcc06f9bf4b936f11907b43643, type: 3}
+  HealthBar4: {fileID: 21300000, guid: 2e0d590cb429d344da52e53603c9510a, type: 3}
+  HealthBar5: {fileID: 21300000, guid: 6e57a488b53ebea4d925cf4d2a7312f1, type: 3}
+  HealthBar6: {fileID: 21300000, guid: 7b7e0a8182362fb4d8c7f297d8b0ecc8, type: 3}
+  HealthBarImage: {fileID: 481123801}
+  DeathCanvas: {fileID: 854645903}
+  HealthCanvas: {fileID: 1340101244}
+  EndCanvas: {fileID: 340489774}
 --- !u!143 &1341670178
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2411,7 +2410,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389488445}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}

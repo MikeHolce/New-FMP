@@ -83,7 +83,7 @@ public class healthBar : MonoBehaviour
         }
         if (other.tag == "Enemy")
         {
-            curHealth -= 2;
+            curHealth -= 1;
         }
         {
             if (other.name == "healthup")
