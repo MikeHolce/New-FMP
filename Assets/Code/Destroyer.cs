@@ -10,6 +10,8 @@ public class Destroyer : MonoBehaviour
     public float timer = 3;
     public float minusTime = 0.5f;
 
+    public static bool spawnPlayer;
+
 
     void Start()
     {
@@ -28,8 +30,9 @@ public class Destroyer : MonoBehaviour
         }
         if (timer <= 0)
         {
-            this.transform.position = new Vector3(0, 90, 0);
+            this.transform.position = new Vector3(0, 120, 0);
             minusTime = 0;
+            spawnPlayer = true;
         }
 
 

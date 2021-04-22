@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-
+    public Transform playerSpawn;
 
     [SerializeField]
     float moveSpeed = 4f; //Change in inspector to adjust move speedVector3 forward, right; // Keeps track of our relative forward and right vectorsvoid Start()
@@ -12,7 +12,7 @@ public class Character : MonoBehaviour
     
     public CharacterController characterController;
 
-
+    public bool transformPlayer;
     public GameObject Collide;
 
     // Player Health
@@ -33,13 +33,23 @@ public class Character : MonoBehaviour
         forward = Vector3.Normalize(forward); // make sure the length of vector is set to a max of 1.0
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward; // set the right-facing vector to be facing right relative to the camera's forward vector
 
-        playerHealth = 5;
+        playerHealth = 2;
     }
 
 
     // Update is called once per frame
     void Update()
     {
+
+        if (Destroyer.spawnPlayer == true)
+        {
+            transformPlayer = true;
+            this.transform.position = new Vector3(5, 0, 5);
+        }
+
+
+
+
 
         healthCheck = playerHealth;
 

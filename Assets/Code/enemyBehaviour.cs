@@ -42,6 +42,7 @@ public class enemyBehaviour : MonoBehaviour
     public float loopCounter;
 
     public bool canAttack;
+    public bool runTimer;
 
     public float redCounter;
 
@@ -79,6 +80,7 @@ public class enemyBehaviour : MonoBehaviour
         {
             transform.LookAt(Player);
             GetComponent<Rigidbody>().AddForce(transform.forward * moveSpeed * Time.deltaTime);
+            runTimer = false;
         }
 
 
@@ -109,10 +111,17 @@ public class enemyBehaviour : MonoBehaviour
 
         if (canAttack == true)
         {
-            regBool = false;
-            chargeBool = true;
+            /**
+            runTimer = true;
+            canAttack = false;
+            **/
+           
+
+            //regBool = false;
+            //chargeBool = true;
             loopCounter += 0.1f * Time.deltaTime;
             //redCounter += 0.1f * Time.deltaTime;
+            
             if (loopCounter >= 0.5)             // counter goes up when it gets to 10 it does 1 damage to the player before u have to wait till recieving more damage
             {
                 //chargeBool = false;
@@ -125,21 +134,32 @@ public class enemyBehaviour : MonoBehaviour
             if (redCounter >= 0.6)
             {
                 Debug.Log("change red");
-                attackBool = false;
-                regBool = true;
+                //attackBool = false;
+                //regBool = true;
                 redCounter = 0;
             }
-        }
 
-        if(canAttack == false)
+        }/**
+        else
         {
-            regBool = true;
-            loopCounter = 0;
+            if(runTimer == false)
+            {
+                regBool = true;
+            }
         }
+        **/
 
 
-
-
+        /**
+        if (runTimer == true)
+        {
+            StartCoroutine(Anticipation());
+        }
+        else
+        {
+            StopCoroutine(Anticipation());
+        }
+        **/
 
 
         //anticipation
@@ -147,6 +167,9 @@ public class enemyBehaviour : MonoBehaviour
 
         if(chargeBool == true)
         {
+            attackBool = false;
+            regBool = false;
+
             for (int i = 0; i < changeable.Length; i++)
             {
                 changeable[i].GetComponent<MeshRenderer>().material = Charge;
@@ -154,6 +177,9 @@ public class enemyBehaviour : MonoBehaviour
         }
         if (attackBool == true)
         {
+            chargeBool = false;
+            regBool = false;
+
             for (int i = 0; i < changeable.Length; i++)
             {
                 changeable[i].GetComponent<MeshRenderer>().material = Attack;
@@ -161,6 +187,9 @@ public class enemyBehaviour : MonoBehaviour
         }
         if (regBool == true)
         {
+            chargeBool = false;
+            attackBool = false;
+
             for (int i = 0; i < changeable.Length; i++)
             {
                 changeable[i].GetComponent<MeshRenderer>().material = Regular;
@@ -170,17 +199,34 @@ public class enemyBehaviour : MonoBehaviour
 
     }
 
-
-    // changed version of move
     /**
-    private void FixedUpdate()
+    IEnumerator Anticipation()
     {
-        moveEnemy(Movement);
-    }
+        //show charge colours
 
-    void moveEnemy(Vector3 direction)
-    {
-        rb.MovePosition(transform.position + (direction * moveSpeed * Time.deltaTime));
+
+        chargeBool = true;
+
+        yield return new WaitForSeconds(3);
+
+        //attack colours and remove player health
+
+
+        attackBool = true;
+       
+        Character.playerHealth -= 1;
+        Debug.Log("damage recieved");
+
+        yield return new WaitForSeconds(1);
+
+        regBool = true;
+
+        StopCoroutine(Anticipation());
+        // attack reset
+
     }
     **/
+
+
+
 }
