@@ -23,7 +23,7 @@ public class PauseBtn : MonoBehaviour
         paused = !paused;
         PauseMenu.enabled = false;
         paused = false;
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
         paused = false;
     }
 }
