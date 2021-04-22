@@ -12,16 +12,19 @@ public class healthBar : MonoBehaviour
     public Sprite HealthBar5;
     public Sprite HealthBar6;
     public Image HealthBarImage;
-    public static int curHealth;
+    public static int playerHealth;
     public Canvas DeathCanvas;
     public Canvas HealthCanvas;
     public Canvas EndCanvas;
     public static bool paused;
+
+    public GameObject Health;
+
     // Start is called before the first frame update
     void Start()
     {
         HealthBarImage.sprite = HealthBarFull;
-        curHealth = 5;
+        Character.playerHealth = 2;
         DeathCanvas.enabled = false;
         paused = false;
         EndCanvas.enabled = false;
@@ -30,7 +33,7 @@ public class healthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (curHealth == 0)
+        if (Character.playerHealth == 0)
         {
             HealthBarImage.sprite = HealthBar5;
             DeathCanvas.enabled = true;
@@ -39,34 +42,38 @@ public class healthBar : MonoBehaviour
                 PauseGame();
             }
         }
-        if (curHealth == 5)
+        if (Character.playerHealth == 5)
         {
             HealthBarImage.sprite = HealthBarFull;
         }
-        if (curHealth == 4)
+        if (Character.playerHealth == 4)
         {
             HealthBarImage.sprite = HealthBar2;
         }
-        if (curHealth == 3)
+        if (Character.playerHealth == 3)
         {
             HealthBarImage.sprite = HealthBar3;
         }
-        if (curHealth == 2)
+        if (Character.playerHealth == 2)
         {
             HealthBarImage.sprite = HealthBar4;
         }
-        if (curHealth == 1)
+        if (Character.playerHealth == 1)
         {
             HealthBarImage.sprite = HealthBar5;
         }
-        if (curHealth == 0)
+        if (Character.playerHealth == 0)
         {
             HealthBarImage.sprite = HealthBar6;
         }
 
         if (Input.GetKeyDown("space"))
         {
-            curHealth -= 1;
+            Character.playerHealth -= 1;
+        }
+        if (playerHealth >= 1)
+        {
+            Debug.Log("player died");
         }
     }
 
@@ -74,22 +81,22 @@ public class healthBar : MonoBehaviour
     {
         if (other.name == "DangerEnd")
         {
-            curHealth -= 5;
+            Character.playerHealth -= 5;
         }
         else
         if (other.name == "Trap")
         {
-            curHealth -= 1;
+            Character.playerHealth -= 1;
         }
         if (other.tag == "Enemy")
         {
-            curHealth -= 1;
+            Character.playerHealth -= 1;
         }
         {
-            if (other.name == "healthup")
+            if (other.name == "Health")
             {
+                Character.playerHealth += 1;
                 Destroy(other.gameObject);
-                curHealth += 1;
             }
         }
         if (other.name == "End")
