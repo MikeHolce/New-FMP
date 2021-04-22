@@ -36,11 +36,13 @@ public class pickupObjects : MonoBehaviour
         if (other.name == "Armour")
         {
             gotArmour = true;
+            Destroy(other.gameObject);
         }
 
         if (other.name == "Sprint")
         {
             gotSprint = true;
+            Destroy(other.gameObject);
         }
 
     }
