@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class pickupObjects : MonoBehaviour
 {
+    /**
     public GameObject Health;
     public GameObject Armour;
     public GameObject Sprint;
-
+    **/
 
 
     public bool gotArmour;
     public bool gotSprint;
+
 
     // Start is called before the first frame update
     void Start()

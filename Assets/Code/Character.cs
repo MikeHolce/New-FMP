@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+
+
+    public CharacterController charController;
+
     public Transform playerSpawn;
+    public Transform Player;
 
     [SerializeField]
     float moveSpeed = 4f; //Change in inspector to adjust move speedVector3 forward, right; // Keeps track of our relative forward and right vectorsvoid Start()
     Vector3 forward, right;
     
-    public CharacterController characterController;
 
-    public bool transformPlayer;
+    public static bool transformPlayer;
     public GameObject Collide;
+
 
     // Player Health
     // call data script
@@ -25,6 +30,13 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        CharacterController charController = gameObject.GetComponent<CharacterController>();
+
+
+        //transformPlayer = true;
+
+
 
         Collide.SetActive(false);
 
@@ -43,10 +55,12 @@ public class Character : MonoBehaviour
 
         if (Destroyer.spawnPlayer == true)
         {
-            transformPlayer = true;
-            this.transform.position = new Vector3(5, 0, 5);
-        }
 
+            Player.position = new Vector3(5, 0, 5);
+
+
+            Destroyer.spawnPlayer = false;
+        }
 
 
 

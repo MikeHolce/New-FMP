@@ -7,15 +7,19 @@ public class Destroyer : MonoBehaviour
     
 
     private bool startTimer;
-    public float timer = 3;
+    public static float timer = 3.5f;
     public float minusTime = 0.5f;
 
     public static bool spawnPlayer;
+    public static bool begin;
 
+
+    public float teleTimer;
 
     void Start()
     {
         startTimer = true;
+        teleTimer = 0;
     }
 
     void Update()
@@ -30,13 +34,26 @@ public class Destroyer : MonoBehaviour
         }
         if (timer <= 0)
         {
+            begin = true;
             this.transform.position = new Vector3(0, 120, 0);
             minusTime = 0;
-            spawnPlayer = true;
         }
 
+        if (begin == true)
+        {
+            teleTimer += 0.5f * Time.deltaTime;
+            if(teleTimer >= 1)
+            {
+                spawnPlayer = true;
+                begin = false;
+                timer = 1;
+            }
+        }
 
-
+        if (spawnPlayer == true)
+        {
+            teleTimer = 0;
+        }
 
 
 
