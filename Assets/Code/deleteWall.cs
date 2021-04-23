@@ -7,9 +7,9 @@ public class deleteWall : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Start")
+        if (other.tag == "Walls")
         {
-            Destroy(this.gameObject);
+            Destroy(other.gameObject);
         }
     }
 }
