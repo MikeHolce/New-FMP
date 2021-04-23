@@ -18,14 +18,6 @@ public class healthBar : MonoBehaviour
     public Canvas EndCanvas;
     public static bool paused;
 
-    public GameObject Health;
-
-    private float damage.GetComponent<>();
-    private SpriteRenderer damageRenderer;
-    public float damageTime = 0.1f; // duration of shake and red color
-    public float shakeRange = 20f; // shake range change be changed from inspector,
-                                   //keep it mind that max it can go is half in either direction
-
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +26,6 @@ public class healthBar : MonoBehaviour
         DeathCanvas.enabled = false;
         paused = false;
         EndCanvas.enabled = false;
-
-        damageRenderer = damage.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -57,32 +47,23 @@ public class healthBar : MonoBehaviour
         if (Character.playerHealth == 4)
         {
             HealthBarImage.sprite = HealthBar2;
-            StartCoroutine(Damage());
-            StartCoroutine(DamageShake());
+           
         }
         if (Character.playerHealth == 3)
         {
             HealthBarImage.sprite = HealthBar3;
-            StartCoroutine(Damage());
-            StartCoroutine(DamageShake());
         }
         if (Character.playerHealth == 2)
         {
             HealthBarImage.sprite = HealthBar4;
-            StartCoroutine(Damage());
-            StartCoroutine(DamageShake());
         }
         if (Character.playerHealth == 1)
         {
             HealthBarImage.sprite = HealthBar5;
-            StartCoroutine(Damage());
-            StartCoroutine(DamageShake());
         }
         if (Character.playerHealth == 0)
         {
             HealthBarImage.sprite = HealthBar6;
-            StartCoroutine(Damage());
-            StartCoroutine(DamageShake());
         }
 
         if (Input.GetKeyDown("space"))
@@ -126,30 +107,5 @@ public class healthBar : MonoBehaviour
     {
         Time.timeScale = 0;
         paused = true;
-    }
-
-    private IEnumerator Damage()
-    {
-        Color originalColor = damageRenderer.color;
-        WaitForSeconds wait = new WaitForSeconds(damageTime);
-        damageRenderer.color = new Color32(255, 0, 0, 255); //adjust color to your needs
-        yield return wait;
-        damageRenderer.color = originalColor;
-    }
-    private IEnumerator DamageShake()
-    {
-
-        float elapsed = 0.0f;
-        Quaternion originalRotation = damage.transform.rotation;
-
-        while (elapsed <damageTime)
-        {
-            elapsed += Time.deltaTime;
-            float z = Random.value * shakeRange - (shakeRange / 2);
-            damage.transform.eulerAngles = new Vector3(originalRotation.x, originalRotation.y, originalRotation.z + z);
-            yield return null;
-        }
-
-        damage.transform.rotation = originalRotation;
     }
 }
