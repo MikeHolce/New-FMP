@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    Rigidbody rb;
+    static Animator anim;
 
     [SerializeField]
     float moveSpeed = 4f; //Change in inspector to adjust move speedVector3 forward, right; // Keeps track of our relative forward and right vectorsvoid Start()
@@ -13,21 +13,23 @@ public class Character : MonoBehaviour
     public CharacterController characterController;
 
 
-    public GameObject Collide;
+    //public GameObject Collide;
 
     // Player Health
     // call data script
     static public float playerHealth;
     public float healthCheck;
 
-    public bool mouseClicked;
+    static public bool mouseClicked;
 
     // Start is called before the first frame update
     void Start()
-    {
-        rb = GetComponent<Rigidbody>();
 
-        Collide.SetActive(false);
+    {
+        anim = GetComponent<Animator>();
+
+
+        //Collide.SetActive(false);
 
         forward = Camera.main.transform.forward; // Set forward to equal the camera's forward vector
         forward.y = 0; // make sure y is 0
@@ -53,12 +55,26 @@ public class Character : MonoBehaviour
         if (Input.anyKey) // only execute if a key is being pressed
             Move();
 
-
+        /**
         if (Input.GetMouseButtonDown(0) && mouseClicked == false)
         {
             StartCoroutine(Waiting());
             mouseClicked = true;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                anim.SetBool("isAttacking", true);
+            }
+
+            else
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                anim.SetBool("isAttacking", false);
+            }
+
         }
+        **/
 
 
     }
@@ -75,7 +91,7 @@ public class Character : MonoBehaviour
             Vector3 heading = Vector3.Normalize(rightMovement + upMovement); // This creates our new direction. By combining our right and forward movements and normalizing them, we create a new vector that points in the appropriate direction with a length no greater than 1.0transform.forward = heading; // Sets forward direction of our game object to whatever direction we're moving intransform.position += rightMovement; // move our transform's position right/left     transform.position += upMovement; // Move our transform's position up/down
         }
     }
-
+    /**
     IEnumerator Waiting()
     {
 
@@ -86,4 +102,5 @@ public class Character : MonoBehaviour
         StopCoroutine(Waiting());
         mouseClicked = false;
     }
-}
+    **/
+} 
