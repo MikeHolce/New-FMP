@@ -66,7 +66,7 @@ public class AnimationState : MonoBehaviour
         }
 
         if (Input.GetMouseButtonDown(0))
-        { 
+        {
             StartCoroutine(Waiting());
             Character.mouseClicked = true;
             anim.SetBool("isWalking", false);

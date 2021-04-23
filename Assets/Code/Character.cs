@@ -8,7 +8,7 @@ public class Character : MonoBehaviour
 
     public CharacterController charController;
 
-    public Transform playerSpawn;
+    //public Transform playerSpawn;
     public Transform Player;
 
     [SerializeField]
@@ -17,7 +17,7 @@ public class Character : MonoBehaviour
     
 
     public static bool transformPlayer;
-    public GameObject Collide;
+
 
 
     // Player Health
@@ -25,20 +25,20 @@ public class Character : MonoBehaviour
     static public float playerHealth;
     public float healthCheck;
 
-    public bool mouseClicked;
+    static public bool mouseClicked;
 
     // Start is called before the first frame update
     void Start()
     {
 
-        CharacterController charController = gameObject.GetComponent<CharacterController>();
+        //CharacterController charController = gameObject.GetComponent<CharacterController>();
 
 
         //transformPlayer = true;
 
 
 
-        Collide.SetActive(false);
+
 
         forward = Camera.main.transform.forward; // Set forward to equal the camera's forward vector
         forward.y = 0; // make sure y is 0
@@ -83,7 +83,7 @@ public class Character : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && mouseClicked == false)
         {
-            StartCoroutine(Waiting());
+
             mouseClicked = true;
         }
 
@@ -103,14 +103,5 @@ public class Character : MonoBehaviour
         }
     }
 
-    IEnumerator Waiting()
-    {
 
-        Collide.SetActive(true);
-        yield return new WaitForSeconds(1);
-        Collide.SetActive(false);
-        yield return new WaitForSeconds(1);
-        StopCoroutine(Waiting());
-        mouseClicked = false;
-    }
 }
