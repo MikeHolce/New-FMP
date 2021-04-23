@@ -22,7 +22,7 @@ public class turnCode : MonoBehaviour
         // only needed if animations dont workm for all directions
 
 
-        
+        /**
         if (Input.GetKey("w"))
         {
             transform.LookAt(forward);
@@ -39,6 +39,6 @@ public class turnCode : MonoBehaviour
         {
             transform.LookAt(right);
         }
-    
+    **/
     }
 }
