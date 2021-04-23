@@ -70,7 +70,8 @@ public class pickupCanvas : MonoBehaviour
 
         if (canCount == false)
         {
-            Countdown.sprite = nothing;
+            Debug.Log("this works now");
+            lootTimer.enabled = false;
         }
 
     }

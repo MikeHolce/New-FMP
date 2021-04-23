@@ -73,8 +73,12 @@ public class Character : MonoBehaviour
             Debug.Log("player died");
         }
 
-        if (Input.anyKey) // only execute if a key is being pressed
+        if (Input.anyKey)
+        {
             Move();
+        }
+
+
 
 
         if (Input.GetMouseButtonDown(0) && mouseClicked == false)
