@@ -72,8 +72,8 @@ public class AnimationState : MonoBehaviour
         {
             anim.SetBool("isAttacking", false);
         }
-
-        //Running
+        
+         
 
 
     }
