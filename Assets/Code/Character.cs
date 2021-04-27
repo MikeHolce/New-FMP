@@ -51,25 +51,14 @@ public class Character : MonoBehaviour
             charController.Move(direction * moveSpeed * Time.deltaTime);
         }
 
-
-
-
-
-
-
-
-
-
-        if (Destroyer.spawnPlayer == true)
+        if (pickupCanvas.spawnPlayer == true)
         {
 
             Player.position = new Vector3(5, 0, 5);
 
 
-            Destroyer.spawnPlayer = false;
+            pickupCanvas.spawnPlayer = false;
         }
-
-
 
 
         healthCheck = playerHealth;
@@ -80,28 +69,27 @@ public class Character : MonoBehaviour
             Debug.Log("player died");
         }
 
+        /**
         if (Input.anyKey)
         {
             Move();
         }
-
-
-
+        **/
 
         if (Input.GetMouseButtonDown(0) && mouseClicked == false)
         {
-
             mouseClicked = true;
         }
 
 
     }
 
-
+    /**
     void Move()
     {
 
     }
+    **/
 
 
 }

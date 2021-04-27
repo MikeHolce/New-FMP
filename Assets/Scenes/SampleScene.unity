@@ -3821,10 +3821,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25dc908157657f4e9e16752de5f7715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lootTimer: {fileID: 943174451}
+  zero: {fileID: 21300000, guid: 1026bbeba572962499564e1d2d7a6369, type: 3}
+  one: {fileID: 21300000, guid: 80a0b3746a6f72e4ab80d9ce670953d8, type: 3}
+  two: {fileID: 21300000, guid: f0a73ae41039e914ab255bf984e2fb67, type: 3}
+  three: {fileID: 21300000, guid: 52690577144fdf1429cdea3b280ba91d, type: 3}
+  four: {fileID: 21300000, guid: 3c3094385fac44d41be2ac0a6a9739bb, type: 3}
+  five: {fileID: 21300000, guid: 3aaf7099be4b0174491dd0d2b5555d75, type: 3}
+  six: {fileID: 21300000, guid: 405b50ff05a48d748b2465f06eed9014, type: 3}
   seven: {fileID: 21300000, guid: c395fa2127f55bb4e80b297a8213cf49, type: 3}
   eight: {fileID: 21300000, guid: 97463250bbb6f0c4a9a906a8bab5a0c7, type: 3}
   nine: {fileID: 21300000, guid: 8f5f44a30a9ccad4a9c83ee43b4db8c4, type: 3}
   ten: {fileID: 21300000, guid: 063abd2805385d74a948f37d33effc3b, type: 3}
+  loot: {fileID: 21300000, guid: e808d18187d46584a983efcbbc4d213c, type: 3}
+  timeUp: {fileID: 21300000, guid: dd9a59085d7d1014a997db0e60cf9ce6, type: 3}
+  nothing: {fileID: 21300000, guid: 5920cce9894f2ef4ab1fd24d19f77f06, type: 3}
+  Countdown: {fileID: 1478633848}
   canCount: 0
 --- !u!114 &943174449
 MonoBehaviour:
@@ -12151,8 +12163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6777311eb80b428489f998d848fc700d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minusTime: 0.5
-  teleTimer: 0
 --- !u!65 &1852700487
 BoxCollider:
   m_ObjectHideFlags: 0
