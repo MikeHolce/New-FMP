@@ -8,11 +8,13 @@ public class pickupObjects : MonoBehaviour
     public GameObject Health;
     public GameObject Armour;
     public GameObject Sprint;
+    public GameObject Map;
     **/
 
 
     public bool gotArmour;
     public bool gotSprint;
+    public bool gotMap;
 
 
     // Start is called before the first frame update
@@ -44,6 +46,12 @@ public class pickupObjects : MonoBehaviour
         if (other.name == "Sprint")
         {
             gotSprint = true;
+            Destroy(other.gameObject);
+        }
+
+        if (other.name == "Map")
+        {
+            gotMap = true;
             Destroy(other.gameObject);
         }
 
