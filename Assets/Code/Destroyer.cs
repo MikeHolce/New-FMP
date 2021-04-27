@@ -10,7 +10,7 @@ public class Destroyer : MonoBehaviour
     //public static float timer = 3.5f;
     //public float minusTime = 0.5f;
 
-    public static bool spawnPlayer;
+   
     //public static bool begin;
 
 
@@ -30,6 +30,7 @@ public class Destroyer : MonoBehaviour
             this.transform.position = new Vector3(0, 120, 0);
             pickupCanvas.teleDestroy = false;
         }
+
 
         /**
         if (startTimer == true)
