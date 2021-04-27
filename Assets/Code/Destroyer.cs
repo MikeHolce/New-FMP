@@ -7,56 +7,89 @@ public class Destroyer : MonoBehaviour
     
 
     private bool startTimer;
-    public static float timer = 3.5f;
-    public float minusTime = 0.5f;
+    //public static float timer = 3.5f;
+    //public float minusTime = 0.5f;
 
     public static bool spawnPlayer;
-    public static bool begin;
+    //public static bool begin;
 
 
-    public float teleTimer;
+    //public float teleTimer;
 
     void Start()
     {
-        startTimer = true;
-        teleTimer = 0;
+        //startTimer = true;
+        StartCoroutine(Timing());
+        //teleTimer = 0;
     }
 
     void Update()
     {
+        /**
         if (startTimer == true)
         {
-            timer -= Time.deltaTime * minusTime;
+            StartCoroutine(Timing());
         }
-        if (timer == 0)
-        {
-            startTimer = false;
-        }
-        if (timer <= 0)
-        {
-            begin = true;
-            this.transform.position = new Vector3(0, 120, 0);
-            minusTime = 0;
-        }
+        **/
 
-        if (begin == true)
-        {
-            teleTimer += 0.5f * Time.deltaTime;
-            if(teleTimer >= 1)
-            {
-                spawnPlayer = true;
-                begin = false;
-                timer = 1;
-            }
-        }
+    }
 
-        if (spawnPlayer == true)
-        {
-            teleTimer = 0;
-        }
+    IEnumerator Timing()
+    {
+        //startTimer = false;
+        //10
+        Debug.Log("count");
+        pickupCanvas.Countdown.sprite = pickupCanvas.ten;
+        yield return new WaitForSeconds(1);
+        //9
+        Debug.Log("count");
+        pickupCanvas.Countdown.sprite = pickupCanvas.nine;
+        yield return new WaitForSeconds(1);
+        //8
+        Debug.Log("count");
+        pickupCanvas.Countdown.sprite = pickupCanvas.eight;
+        yield return new WaitForSeconds(1);
+        //7
+        Debug.Log("count");
+        pickupCanvas.Countdown.sprite = pickupCanvas.seven;
+        yield return new WaitForSeconds(1);
+        //6
+        Debug.Log("count");
+        pickupCanvas.Countdown.sprite = pickupCanvas.six;
+        yield return new WaitForSeconds(1);
+        //5
+        Debug.Log("count");
+        pickupCanvas.Countdown.sprite = pickupCanvas.five;
+        yield return new WaitForSeconds(1);
+        //4
+        Debug.Log("count");
+        pickupCanvas.Countdown.sprite = pickupCanvas.four;
+        yield return new WaitForSeconds(1);
+        //3
+        Debug.Log("count");
+        pickupCanvas.Countdown.sprite = pickupCanvas.three;
+        yield return new WaitForSeconds(1);
+        //2
+        Debug.Log("count");
+        pickupCanvas.Countdown.sprite = pickupCanvas.two;
+        yield return new WaitForSeconds(1);
+
+        Debug.Log("count");
+        pickupCanvas.Countdown.sprite = pickupCanvas.one;
+        yield return new WaitForSeconds(1);
+        //time up
+        pickupCanvas.Countdown.sprite = pickupCanvas.timeUp;
+        this.transform.position = new Vector3(0, 120, 0);
+        //freeze move
+        yield return new WaitForSeconds(0.5f);
+        //nothing
+        pickupCanvas.lootTimer.enabled = false;
+        //teleport player
+        spawnPlayer = true;
+        //unfreeze move
 
 
-
+        StopCoroutine(Timing());
     }
 
 

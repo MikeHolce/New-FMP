@@ -6,21 +6,25 @@ using UnityEngine.UI;
 public class pickupCanvas : MonoBehaviour
 {
 
-    public Canvas lootTimer;
+    static public Canvas lootTimer;
 
-    public Sprite zero;
-    public Sprite one;
-    public Sprite two;
-    public Sprite three;
-    public Sprite four;
-    public Sprite five;
-    public Sprite six;
-    public Sprite loot;
-    public Sprite timeUp;
-    public Sprite nothing;
+    static public Sprite zero;
+    static public Sprite one;
+    static public Sprite two;
+    static public Sprite three;
+    static public Sprite four;
+    static public Sprite five;
+    static public Sprite six;
+    static public Sprite seven;
+    static public Sprite eight;
+    static public Sprite nine;
+    static public Sprite ten;
+    static public Sprite loot;
+    static public Sprite timeUp;
+    static public Sprite nothing;
 
 
-    public Image Countdown;
+    static public Image Countdown;
 
     public bool canCount;
 
@@ -29,12 +33,13 @@ public class pickupCanvas : MonoBehaviour
     void Start()
     {
         Countdown.sprite = loot;
-        canCount = true;
+        //canCount = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /**
         if(Destroyer.timer <= 3)
         {
             Countdown.sprite = six;
@@ -65,7 +70,7 @@ public class pickupCanvas : MonoBehaviour
         }
         if (Destroyer.spawnPlayer == true)
         {
-            canCount = false;
+            //canCount = false;
         }
 
         if (canCount == false)
@@ -73,6 +78,7 @@ public class pickupCanvas : MonoBehaviour
             Debug.Log("this works now");
             lootTimer.enabled = false;
         }
+        **/
 
     }
 }
