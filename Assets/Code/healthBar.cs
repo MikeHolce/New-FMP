@@ -26,6 +26,7 @@ public class healthBar : MonoBehaviour
         DeathCanvas.enabled = false;
         paused = false;
         EndCanvas.enabled = false;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
