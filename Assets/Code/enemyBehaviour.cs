@@ -15,15 +15,17 @@ public class enemyBehaviour : MonoBehaviour
     public bool attackBool;
     public GameObject[] changeable;
     **/
+    public int rand;
+    public GameObject[] Checkpoints; 
 
     //movement
     public Transform Player;
+    public Transform Enemy;
+
     private float dist;
     public float moveSpeed;
     public float howclose;
-
     public bool startAttack;
-
 
     // Start is called before the first frame update
     void Start()
@@ -34,34 +36,30 @@ public class enemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Input.GetKeyDown("space")
         if (startAttack == true)
         {
-            StartCoroutine(Attack());
+            //StartCoroutine(Attack());
+            //rand = Random.Range(0, Checkpoints.Length);
+            //bhInstantiate(Checkpoints[rand], transform.position, Quaternion.identity);
         }
+
     }
 
+    /**
     IEnumerator Attack()
     {
         startAttack = false;
-        
+
+
         //walk about
+        moveSpeed = 5;
+        rand = Random.Range(0, Checkpoints.Length);
+        Instantiate(Checkpoints[rand], transform.position, Quaternion.identity);
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    **/
 
     /**
 private Vector3 Movement;

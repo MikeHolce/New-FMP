@@ -6,7 +6,7 @@ public class SpawningEnemy : MonoBehaviour
 {
 
     public GameObject Enemy;
-    public Transform spawnZone;
+    GameObject theZone;
 
     public Transform T;
     public Transform B;
@@ -24,6 +24,9 @@ public class SpawningEnemy : MonoBehaviour
 
     public int Counter;
     static public int Kills;
+
+    public int rand;
+    public GameObject[] Checkpoints;
 
     // Start is called before the first frame update
     void Start()
@@ -52,17 +55,21 @@ public class SpawningEnemy : MonoBehaviour
             Activate = false;
             Unlock = false;
             Counter += 1;
-
-
         }
 
 
         if (Spawn == true)
         {
-            Spawn = false;
-            Instantiate(Enemy, spawnZone.position, Quaternion.identity);
+            theZone = GameObject.FindWithTag("spawnZone");
 
-           
+
+            Spawn = false;
+
+            rand = Random.Range(0, Checkpoints.Length);
+            Instantiate(Checkpoints[rand], transform.position, Quaternion.identity);
+
+
+            Instantiate(Enemy, theZone.positon, Quaternion.identity);          
           
             Instantiate(doorT, T.position, Quaternion.identity);       
             Instantiate(doorB, B.position, Quaternion.identity);
