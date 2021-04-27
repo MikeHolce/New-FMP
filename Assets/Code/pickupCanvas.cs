@@ -35,17 +35,21 @@ public class pickupCanvas : MonoBehaviour
     void Start()
     {
         Countdown.sprite = loot;
-        //canCount = true;
+        canCount = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if(canCount == true)
+        {
+            StartCoroutine(Timing());
+        }
     }
 
     IEnumerator Timing()
     {
+        canCount = false;
         //startTimer = false;
         //10
         Debug.Log("count");
