@@ -53,10 +53,8 @@ public class Character : MonoBehaviour
 
         if (pickupCanvas.spawnPlayer == true)
         {
-
+            Debug.Log("spawn the player");
             Player.position = new Vector3(5, 0, 5);
-
-
             pickupCanvas.spawnPlayer = false;
         }
 

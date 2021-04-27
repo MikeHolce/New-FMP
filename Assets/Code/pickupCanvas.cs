@@ -101,6 +101,7 @@ public class pickupCanvas : MonoBehaviour
         lootTimer.enabled = false;
         //teleport player
         spawnPlayer = true;
+
         //unfreeze move
 
 
