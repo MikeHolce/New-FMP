@@ -16,29 +16,20 @@ public class PauseMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("p"))
+        if (Input.GetKeyDown("escape"))
         {
-            PauseMenu.enabled = !PauseMenu.enabled;
-            if (PauseMenu.enabled == true)
-                
+            if (paused == true)
             {
-                PauseGame();
+                Time.timeScale = 1.0f;
+                PauseMenu.enabled = false;
+                paused = false;
             }
             else
             {
-                ResumeGame();
+                Time.timeScale = 0.0f;
+                PauseMenu.enabled = true;
+                paused = true;
             }
         }
-    }
-    void PauseGame()
-    {
-        Time.timeScale = 0;
-        paused = true;
-    }
-
-    void ResumeGame()
-    {
-        Time.timeScale = 1;
-        paused = false;
     }
 }

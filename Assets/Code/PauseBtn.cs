@@ -10,7 +10,6 @@ public class PauseBtn : MonoBehaviour
     void Start()
     {
         PauseMenu.enabled = false;
-        paused = false;
     }
 
     // Update is called once per frame
