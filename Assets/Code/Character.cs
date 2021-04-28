@@ -80,6 +80,11 @@ public class Character : MonoBehaviour
             mouseClicked = true;
 
         }
+        if (Input.GetMouseButtonUp(0))
+        {
+            mouseClicked = false;
+
+        }
 
 
     }
