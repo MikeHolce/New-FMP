@@ -573,7 +573,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Quit
 --- !u!222 &123372888
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -594,7 +594,7 @@ GameObject:
   - component: {fileID: 144842421}
   - component: {fileID: 144842420}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Death_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,16 +607,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144842418}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1340101245}
-  m_RootOrder: 8
+  m_Father: {fileID: 1618823298}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.0000047684}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 489.291, y: 91.7421}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &144842420
@@ -4329,7 +4329,7 @@ GameObject:
   - component: {fileID: 933902968}
   - component: {fileID: 933902967}
   m_Layer: 5
-  m_Name: qUIT
+  m_Name: Quit_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4348,11 +4348,11 @@ RectTransform:
   m_Children:
   - {fileID: 123372886}
   m_Father: {fileID: 1618823298}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -160, y: -100}
+  m_AnchoredPosition: {x: 160, y: -100}
   m_SizeDelta: {x: 213.4431, y: 40.0206}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &933902967
@@ -4398,7 +4398,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 933902968}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1618823299}
+        m_TargetAssemblyTypeName: goToStart, Assembly-CSharp
+        m_MethodName: LoadStartScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &933902968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5247,7 +5259,7 @@ GameObject:
   - component: {fileID: 1101212723}
   - component: {fileID: 1101212722}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Retry_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5266,7 +5278,7 @@ RectTransform:
   m_Children:
   - {fileID: 1406455241}
   m_Father: {fileID: 1618823298}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5316,7 +5328,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1101212723}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1618823300}
+        m_TargetAssemblyTypeName: goToGame, Assembly-CSharp
+        m_MethodName: LoadSampleScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1101212723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6039,7 +6063,6 @@ RectTransform:
   - {fileID: 820086938}
   - {fileID: 791379330}
   - {fileID: 1060653954}
-  - {fileID: 144842419}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6341,7 +6364,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Retry
 --- !u!222 &1406455243
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12505,6 +12528,8 @@ GameObject:
   - component: {fileID: 1618823297}
   - component: {fileID: 1618823296}
   - component: {fileID: 1618823295}
+  - component: {fileID: 1618823300}
+  - component: {fileID: 1618823299}
   m_Layer: 5
   m_Name: Death Canvas
   m_TagString: Untagged
@@ -12585,6 +12610,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1750990119}
+  - {fileID: 144842419}
   - {fileID: 1101212721}
   - {fileID: 933902966}
   m_Father: {fileID: 0}
@@ -12595,6 +12621,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1618823299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618823294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28bd30ac970959d4d82e0d02054e67e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1618823300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618823294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af766dd72d7fa2949ad6a162d7f24ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1632496325
 GameObject:
   m_ObjectHideFlags: 0
@@ -13388,7 +13438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0024872, y: -0.0000038146973}
+  m_AnchoredPosition: {x: 0.0024872, y: -0}
   m_SizeDelta: {x: 799.99, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1750990120
