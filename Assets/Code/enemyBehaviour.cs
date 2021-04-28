@@ -142,8 +142,7 @@ public class enemyBehaviour : MonoBehaviour
                 startAttack1 = true;
             }
         }
-        //add health removel
-        //Character.playerHealth -= 1;
+        
     }
 
 
@@ -173,10 +172,11 @@ public class enemyBehaviour : MonoBehaviour
         //Enemy.position = currentCheckpoint.position;;
         Debug.Log("looking at player");
         lookPlayer = true;
-        Debug.Log("attacking player");
+
         //attack player
         beam.SetActive(true); // false to hide, true to show
         beamCollide.SetActive(true);
+
         yield return new WaitForSeconds(1);
         beam.SetActive(false);
         beamCollide.SetActive(false);

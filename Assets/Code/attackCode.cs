@@ -7,7 +7,7 @@ public class attackCode : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (other.tag == "Alien")
         {
             Destroy(other.gameObject);
             SpawningEnemy.Kills += 1;
