@@ -9,7 +9,7 @@ public class deleteWall : MonoBehaviour
     {
         if (other.tag == "Walls")
         {
-            Destroy(other.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }

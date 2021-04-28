@@ -115,7 +115,10 @@ public class SpawningEnemy : MonoBehaviour
             Debug.Log("player entered");
             Activate = true;
         }
+
+
     }
+
     void OnTriggerExit(Collider other)
     {
         if (other.name == "Player")
@@ -123,7 +126,9 @@ public class SpawningEnemy : MonoBehaviour
             Kills = 0;
             Counter = 0;
             Destroy(this.gameObject);
-            //Destroy(findwithat)
+            Destroy(GameObject.FindWithTag("Check1"));
+            Destroy(GameObject.FindWithTag("Check2"));
+            Destroy(GameObject.FindWithTag("spawnZone"));
         }
     }
 
