@@ -16,7 +16,7 @@ public class Character : MonoBehaviour
     
 
     public static bool transformPlayer;
-
+    public GameObject attackArea;
 
 
     // Player Health
@@ -51,25 +51,12 @@ public class Character : MonoBehaviour
             charController.Move(direction * moveSpeed * Time.deltaTime);
         }
 
-
-
-
-
-
-
-
-
-
-        if (Destroyer.spawnPlayer == true)
+        if (pickupCanvas.spawnPlayer == true)
         {
-
+            Debug.Log("spawn the player");
             Player.position = new Vector3(5, 0, 5);
-
-
-            Destroyer.spawnPlayer = false;
+            pickupCanvas.spawnPlayer = false;
         }
-
-
 
 
         healthCheck = playerHealth;
@@ -80,28 +67,49 @@ public class Character : MonoBehaviour
             Debug.Log("player died");
         }
 
+        /**
         if (Input.anyKey)
         {
             Move();
         }
-
-
-
+        **/
 
         if (Input.GetMouseButtonDown(0) && mouseClicked == false)
         {
-
+            StartCoroutine(Waiting());
             mouseClicked = true;
+
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            mouseClicked = false;
+
         }
 
 
     }
 
+    IEnumerator Waiting()
+    {
+        attackArea.SetActive(true);
+        yield return new WaitForSeconds(1);
+        attackArea.SetActive(false);
+        yield return new WaitForSeconds(1);
+        StopCoroutine(Waiting());
+        mouseClicked = false;
+    } 
+    
 
+
+
+
+
+    /**
     void Move()
     {
 
     }
+    **/
 
 
 }
