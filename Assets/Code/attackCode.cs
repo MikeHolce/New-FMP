@@ -5,14 +5,5 @@ using UnityEngine;
 public class attackCode : MonoBehaviour
 {
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Alien")
-        {
-            Debug.Log("dead aliens");
-            Destroy(other.gameObject);
-            SpawningEnemy.Kills += 1;
-        }
-    }
 
 }

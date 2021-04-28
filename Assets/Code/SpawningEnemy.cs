@@ -77,6 +77,7 @@ public class SpawningEnemy : MonoBehaviour
             Instantiate(doorL, L.position, L.rotation);
             Instantiate(doorR, R.position, R.rotation);  //this part is to rotate the doors on the left n right
 
+
             Instantiate(Checkpoints[rand], transform.position, Quaternion.identity);
             theZone = GameObject.FindWithTag("spawnZone").transform;
             Instantiate(Enemy, theZone.position, Quaternion.identity);          
@@ -122,6 +123,7 @@ public class SpawningEnemy : MonoBehaviour
             Kills = 0;
             Counter = 0;
             Destroy(this.gameObject);
+            //Destroy(findwithat)
         }
     }
 

@@ -29,7 +29,7 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        attackArea.SetActive(false);
         //CharacterController charController = gameObject.GetComponent<CharacterController>();
 
 

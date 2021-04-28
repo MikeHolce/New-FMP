@@ -183,9 +183,18 @@ public class enemyBehaviour : MonoBehaviour
         lookPlayer = false;
         move = false;
         StopCoroutine(Attack2());
-
-
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "attackZone")
+        {
+            Debug.Log("dead aliens");
+            Destroy(this.gameObject);
+            SpawningEnemy.Kills += 1;
+        }
+    }
+
 
 
     /**
