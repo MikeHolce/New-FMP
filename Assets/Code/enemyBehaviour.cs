@@ -15,8 +15,14 @@ public class enemyBehaviour : MonoBehaviour
     public bool attackBool;
     public GameObject[] changeable;
     **/
+    public Transform Checkpoint1;
+    public Transform Checkpoint2;
+
     public int rand;
-    public GameObject[] Checkpoints; 
+
+    public bool lookPlayer;
+    public bool lookCheck1;
+    public bool lookCheck2;
 
     //movement
     public Transform Player;
@@ -25,41 +31,162 @@ public class enemyBehaviour : MonoBehaviour
     private float dist;
     public float moveSpeed;
     public float howclose;
-    public bool startAttack;
+
+
+    public bool startAttack1;
+    public bool startAttack2;
+
+    public GameObject beam;
+    public GameObject beamCollide;
+
+    public bool shoot;
+    public bool move; // true = 2 false = 1
+
+
+    public float step;
+
+    public int stopRepeat;
+
+    //public Transform currentCheckpoint;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        startAttack = true;
+        startAttack1 = false;
+        startAttack2 = false;
+
+        beam.SetActive(false);
+        beamCollide.SetActive(false);
+
+        Player = GameObject.FindGameObjectWithTag("player").transform;
+        Checkpoint1 = GameObject.FindGameObjectWithTag("Check1").transform;
+        Checkpoint2 = GameObject.FindGameObjectWithTag("Check2").transform;
+
+
+        //walk about
+        moveSpeed = 5;
+        step = moveSpeed * Time.deltaTime; // calculate distance to move
+
+        move = true;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Input.GetKeyDown("space")
-        if (startAttack == true)
+
+        if (lookPlayer == true)
         {
-            //StartCoroutine(Attack());
-            //rand = Random.Range(0, Checkpoints.Length);
-            //bhInstantiate(Checkpoints[rand], transform.position, Quaternion.identity);
+            transform.LookAt(Player);
         }
 
+        if (lookCheck1 == true)
+        {
+            transform.LookAt(Checkpoint1);
+        }
+
+        if (lookCheck2 == true)
+        {
+            transform.LookAt(Checkpoint2);
+        }
+
+
+
+        //Input.GetKeyDown("space")
+        if (startAttack1 == true)
+        {
+            stopRepeat = 1;
+            //rand = Random.Range(0, Checkpoints.Length);
+            //bhInstantiate(Checkpoints[rand], transform.position, Quaternion.identity);
+            if (stopRepeat == 1)
+            {
+                stopRepeat = 0;
+                StartCoroutine(Attack1());
+;
+            }
+        }
+
+        if (startAttack2 == true)
+        {
+            stopRepeat = 1;
+            if(stopRepeat == 1)
+            {
+                stopRepeat = 0;
+                StartCoroutine(Attack2());
+
+            }
+
+        }
+
+        if (move == true) // move2
+        {
+            //currentCheckpoint = Checkpoint2;
+            lookCheck2 = true;
+            transform.position = Vector3.MoveTowards(transform.position, Checkpoint2.position, step);
+            if (Enemy.position == Checkpoint2.position)
+            {
+                lookCheck2 = false;
+                startAttack2 = true;
+            }
+        }
+
+        if (move == false ) // move1
+        {
+            //currentCheckpoint = Checkpoint1;
+            lookCheck1 = true;
+            transform.position = Vector3.MoveTowards(transform.position, Checkpoint1.position, step);
+            if (Enemy.position == Checkpoint1.position)
+            {
+                lookCheck1 = false;
+                startAttack1 = true;
+            }
+        }
+        //add health removel
+        //Character.playerHealth -= 1;
     }
 
-    /**
-    IEnumerator Attack()
+
+    IEnumerator Attack1()
     {
-        startAttack = false;
-
-
-        //walk about
-        moveSpeed = 5;
-        rand = Random.Range(0, Checkpoints.Length);
-        Instantiate(Checkpoints[rand], transform.position, Quaternion.identity);
+        startAttack1 = false;
+        //Enemy.position = currentCheckpoint.position;;
+        Debug.Log("looking at player");
+        lookPlayer = true;
+        Debug.Log("attacking player");
+        //attack player
+        beam.SetActive(true); // false to hide, true to show
+        beamCollide.SetActive(true);
+        yield return new WaitForSeconds(1);
+        beam.SetActive(false);
+        beamCollide.SetActive(false);
+        lookPlayer = false;
+        move = true;
+        StopCoroutine(Attack1());
 
 
     }
-    **/
+
+    IEnumerator Attack2()
+    {
+        startAttack2 = false;
+        //Enemy.position = currentCheckpoint.position;;
+        Debug.Log("looking at player");
+        lookPlayer = true;
+        Debug.Log("attacking player");
+        //attack player
+        beam.SetActive(true); // false to hide, true to show
+        beamCollide.SetActive(true);
+        yield return new WaitForSeconds(1);
+        beam.SetActive(false);
+        beamCollide.SetActive(false);
+        lookPlayer = false;
+        move = false;
+        StopCoroutine(Attack2());
+
+
+    }
+
 
     /**
 private Vector3 Movement;

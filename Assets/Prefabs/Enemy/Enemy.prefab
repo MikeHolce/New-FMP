@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &705959209358033072
 Transform:
   m_ObjectHideFlags: 0
@@ -52,26 +52,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bea6fe9be934b54f92095e59dd0de9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Regular: {fileID: 2100000, guid: f4e9c2c5532641941b06ba9c5418cbd5, type: 2}
-  Charge: {fileID: 2100000, guid: e92e6dee5ccf4c34ca9cdfcb0a9c47b4, type: 2}
-  Attack: {fileID: 2100000, guid: 13982ba3a45944c44b86562130bd185c, type: 2}
-  regBool: 0
-  chargeBool: 0
-  attackBool: 0
-  changeable:
-  - {fileID: 705959209640916355}
-  - {fileID: 705959210888063565}
-  - {fileID: 705959210258950074}
-  - {fileID: 705959209588938076}
-  - {fileID: 705959210161625318}
-  - {fileID: 705959210282388465}
+  rand: 0
+  Checkpoints: []
   Player: {fileID: 4839326004925796464, guid: b9eb510c331e4a641972129ae09e2f8c, type: 3}
+  Enemy: {fileID: 0}
   moveSpeed: 4
   howclose: 8
-  loopCounter: 0
-  canAttack: 0
-  runTimer: 0
-  redCounter: 0
+  startAttack: 0
 --- !u!65 &705959209358033085
 BoxCollider:
   m_ObjectHideFlags: 0

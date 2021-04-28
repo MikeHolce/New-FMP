@@ -6,7 +6,8 @@ public class SpawningEnemy : MonoBehaviour
 {
 
     public GameObject Enemy;
-    GameObject theZone;
+    public Transform theZone;
+
 
     public Transform T;
     public Transform B;
@@ -37,6 +38,8 @@ public class SpawningEnemy : MonoBehaviour
 
         Counter = 0;
         Kills = 0;
+
+        rand = Random.Range(0, Checkpoints.Length);
     }
 
     // Update is called once per frame
@@ -44,6 +47,7 @@ public class SpawningEnemy : MonoBehaviour
     {
         if (Activate == true)
         {
+            Debug.Log("activate is true");
             Counter += 1;
             Activate = false;
 
@@ -60,21 +64,24 @@ public class SpawningEnemy : MonoBehaviour
 
         if (Spawn == true)
         {
-            theZone = GameObject.FindWithTag("spawnZone");
+            Debug.Log("spawn is true");
+            //theZone = GameObject.FindWithTag("spawnZone").transform;
+            
+
+
 
 
             Spawn = false;
-
-            rand = Random.Range(0, Checkpoints.Length);
-            Instantiate(Checkpoints[rand], transform.position, Quaternion.identity);
-
-
-            Instantiate(Enemy, theZone.positon, Quaternion.identity);          
-          
-            Instantiate(doorT, T.position, Quaternion.identity);       
+            Instantiate(doorT, T.position, Quaternion.identity);
             Instantiate(doorB, B.position, Quaternion.identity);
             Instantiate(doorL, L.position, L.rotation);
             Instantiate(doorR, R.position, R.rotation);  //this part is to rotate the doors on the left n right
+
+            Instantiate(Checkpoints[rand], transform.position, Quaternion.identity);
+            theZone = GameObject.FindWithTag("spawnZone").transform;
+            Instantiate(Enemy, theZone.position, Quaternion.identity);          
+          
+            
             
 
 
@@ -104,6 +111,7 @@ public class SpawningEnemy : MonoBehaviour
     {
         if(other.name == "Player")
         {
+            Debug.Log("player entered");
             Activate = true;
         }
     }
