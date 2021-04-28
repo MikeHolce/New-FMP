@@ -11943,11 +11943,23 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646427144}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 2.0000007, z: 1.0000005}
   m_Center: {x: 0.000000059604645, y: -0.00000047683716, z: -0.00012215972}
+--- !u!114 &1646427147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646427144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2dbd71cb9d7b524cb040ffbf3b56265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1648603417
 GameObject:
   m_ObjectHideFlags: 0
@@ -23690,6 +23702,11 @@ PrefabInstance:
       objectReference: {fileID: 1341670176}
     - target: {fileID: 4839326004925796478, guid: b9eb510c331e4a641972129ae09e2f8c,
         type: 3}
+      propertyPath: attackArea
+      value: 
+      objectReference: {fileID: 1646427144}
+    - target: {fileID: 4839326004925796478, guid: b9eb510c331e4a641972129ae09e2f8c,
+        type: 3}
       propertyPath: playerSpawn
       value: 
       objectReference: {fileID: 0}
@@ -23763,6 +23780,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4839326005033366940, guid: b9eb510c331e4a641972129ae09e2f8c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9eb510c331e4a641972129ae09e2f8c, type: 3}

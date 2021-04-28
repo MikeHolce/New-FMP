@@ -16,7 +16,7 @@ public class Character : MonoBehaviour
     
 
     public static bool transformPlayer;
-
+    public GameObject attackArea;
 
 
     // Player Health
@@ -76,11 +76,28 @@ public class Character : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && mouseClicked == false)
         {
+            StartCoroutine(Waiting());
             mouseClicked = true;
+
         }
 
 
     }
+
+    IEnumerator Waiting()
+    {
+        attackArea.SetActive(true);
+        yield return new WaitForSeconds(1);
+        attackArea.SetActive(false);
+        yield return new WaitForSeconds(1);
+        StopCoroutine(Waiting());
+        mouseClicked = false;
+    } 
+    
+
+
+
+
 
     /**
     void Move()
