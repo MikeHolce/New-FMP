@@ -58,17 +58,13 @@ public class beamCode : MonoBehaviour
 
         if(stopRepeat == 3)
         {
-
             Debug.Log("attacking player");
             Character.playerHealth -= 1;
-            cameraShake.shake = true;
-            cameraShake.goLeft = true;
-
+            //begin shake
+            cameraShake.shakeDatThang = true;
             yield return new WaitForSeconds(1);
-            cameraShake.shake = false;
-            cameraShake.goLeft = false;
-            cameraShake.goRight = false;
-            cameraShake.main.position = cameraShake.middle.position;
+            //end shake
+            cameraShake.shakeDatThang = false;
             stopRepeat = 0;
 
         }

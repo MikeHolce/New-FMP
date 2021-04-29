@@ -65,7 +65,7 @@ public class enemyBehaviour : MonoBehaviour
 
 
         //walk about
-        moveSpeed = 5;
+        moveSpeed = 2;
         step = moveSpeed * Time.deltaTime; // calculate distance to move
 
         move = true;
@@ -79,16 +79,22 @@ public class enemyBehaviour : MonoBehaviour
         if (lookPlayer == true)
         {
             transform.LookAt(Player);
+            lookCheck1 = false;
+            lookCheck2 = false;
         }
 
         if (lookCheck1 == true)
         {
             transform.LookAt(Checkpoint1);
+            lookPlayer = false;
+            lookCheck2 = false;
         }
 
         if (lookCheck2 == true)
         {
             transform.LookAt(Checkpoint2);
+            lookPlayer = false;
+            lookCheck1 = false;
         }
 
 
@@ -152,6 +158,7 @@ public class enemyBehaviour : MonoBehaviour
         //Enemy.position = currentCheckpoint.position;;
         Debug.Log("looking at player");
         lookPlayer = true;
+
         Debug.Log("attacking player");
         //attack player
         beam.SetActive(true); // false to hide, true to show
