@@ -162,8 +162,6 @@ public class enemyBehaviour : MonoBehaviour
         lookPlayer = false;
         move = true;
         StopCoroutine(Attack1());
-
-
     }
 
     IEnumerator Attack2()

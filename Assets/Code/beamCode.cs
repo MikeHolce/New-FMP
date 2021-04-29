@@ -61,7 +61,14 @@ public class beamCode : MonoBehaviour
 
             Debug.Log("attacking player");
             Character.playerHealth -= 1;
+            cameraShake.shake = true;
+            cameraShake.goLeft = true;
+
             yield return new WaitForSeconds(1);
+            cameraShake.shake = false;
+            cameraShake.goLeft = false;
+            cameraShake.goRight = false;
+            cameraShake.main.position = cameraShake.middle.position;
             stopRepeat = 0;
 
         }

@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class cameraShake : MonoBehaviour
 {
-    public Transform main;
-    public Transform middle;
+    static public Transform main;
+    static public Transform middle;
     public Transform left;
     public Transform right;
 
-    public bool shake;
+    static public bool shake;
     public bool startShake;
     public int stopRepeat;
 
     public float step;
     public float moveSpeed;
 
-    public bool goLeft;
-    public bool goRight;
+    static public bool goLeft;
+    static public bool goRight;
 
 
 
