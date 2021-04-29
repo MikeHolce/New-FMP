@@ -52,7 +52,7 @@ public class RoomSpawner : MonoBehaviour
             }
             spawned = true;
         }
-        
+
     }
     void OnTriggerEnter(Collider other)
     {

@@ -4,38 +4,50 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
-    public Transform Destroyerer;
-    public Transform Teleport;
+    
 
     private bool startTimer;
-    public int timer = 2;
+    //public static float timer = 3.5f;
+    //public float minusTime = 0.5f;
 
+   
+    //public static bool begin;
+
+
+    //public float teleTimer;
 
     void Start()
     {
-        startTimer = true;
+        //startTimer = true;
+        //teleTimer = 0;
     }
 
     void Update()
     {
+
+        if(pickupCanvas.teleDestroy == true)
+        {
+            this.transform.position = new Vector3(0, 120, 0);
+            pickupCanvas.teleDestroy = false;
+        }
+
+
+        /**
         if (startTimer == true)
         {
-            timer -= 1;
+            StartCoroutine(Timing());
         }
-        if (startTimer == false)
-        {
-            timer = 0;
-        }
+        **/
+
     }
+
+    
 
 
     void OnTriggerEnter(Collider other)
     {
         Destroy(other.gameObject);
-        if (timer <= 1)
-        {
-            Destroyerer.position = Teleport.position;  
-        }
+
     }
 
 }
