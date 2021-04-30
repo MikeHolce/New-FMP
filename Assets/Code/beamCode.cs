@@ -61,11 +61,12 @@ public class beamCode : MonoBehaviour
             Debug.Log("attacking player");
             Character.playerHealth -= 1;
             //begin shake
-            cameraShake.shakeDatThang = true;
+            cameraShake.gotHit = true;
             yield return new WaitForSeconds(1);
             //end shake
-            cameraShake.shakeDatThang = false;
+            cameraShake.gotHit = false;
             stopRepeat = 0;
+            StopCoroutine(attackDamage());
 
         }
         

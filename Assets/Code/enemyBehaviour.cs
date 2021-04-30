@@ -181,7 +181,6 @@ public class enemyBehaviour : MonoBehaviour
         //attack player
         beam.SetActive(true); // false to hide, true to show
         beamCollide.SetActive(true);
-
         yield return new WaitForSeconds(1);
         beam.SetActive(false);
         beamCollide.SetActive(false);

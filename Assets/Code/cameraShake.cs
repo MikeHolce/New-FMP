@@ -9,19 +9,53 @@ public class cameraShake : MonoBehaviour
     public float duration;
     public float intensity;
 
-    static public bool shakeDatThang;
+    static public bool gotHit;
+    public bool shook;
+    public bool shaking;
+
+    void Start()
+    {
+        
+    }
 
     void Update()
     {
-        if (shakeDatThang == true)
+
+        if(gotHit == true && shook == true)
         {
-            Shake();
+            Debug.Log("both is true");
+            shaking = true;
         }
+
+        if (gotHit == true)
+        {
+            Debug.Log("gothit");
+            shook = true;
+            duration = 1;
+            intensity = 0.3f;
+        }
+        if (gotHit == false)
+        {
+            Debug.Log("false");
+            shook = false;
+            shaking = false;
+        }
+
+        if (shaking == true)
+        {
+            Debug.Log("shaking");
+            Camera.DOComplete();
+            Camera.DOShakePosition(duration, intensity);
+            gotHit = false;
+        }
+
     }
 
+    /**
     public void Shake()
     {
         Camera.DOComplete();
         Camera.DOShakePosition(duration, intensity);
     }
+    **/
 }
