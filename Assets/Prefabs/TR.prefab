@@ -768,7 +768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 705959209358033083, guid: e6b5be77ca6bfce4f914289622e47c42, type: 3}
-  spawnZone: {fileID: 1958848903277354009}
+  theZone: {fileID: 0}
   T: {fileID: 4116417477574927489}
   B: {fileID: 9041152017679489241}
   L: {fileID: 2242468447576742726}
@@ -781,6 +781,8 @@ MonoBehaviour:
   Spawn: 0
   Unlock: 0
   Counter: 0
+  rand: 0
+  Checkpoints: []
 --- !u!65 &1129508238503041482
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2198,12 +2200,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5b6648fa0a96210449da1a070f92d111,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.041985
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5b6648fa0a96210449da1a070f92d111,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.48699
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5b6648fa0a96210449da1a070f92d111,
         type: 3}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05443432, g: 0.045210697, b: 0.036324188, a: 1}
+  m_IndirectSpecularColor: {r: 0.045011736, g: 0.038296845, b: 0.032044135, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5995,6 +5995,9 @@ MonoBehaviour:
   - {fileID: 3771495108943724500, guid: 77d12631442dc9c4d964180ae43cef67, type: 3}
   closedRoom: {fileID: 5449790246513866521, guid: 7ee322b37da40ea4aaeabb18e10b3819,
     type: 3}
+  rooms: []
+  waitTime: 5
+  boss: {fileID: 0}
 --- !u!4 &693977246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b2c78f189ab24934c80bb69a92cb7ae0,
@@ -32306,6 +32309,16 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1341670176}
+    - target: {fileID: 4839326004925796478, guid: b9eb510c331e4a641972129ae09e2f8c,
+        type: 3}
+      propertyPath: attackArea
+      value: 
+      objectReference: {fileID: 1646427144}
+    - target: {fileID: 4839326004925796478, guid: b9eb510c331e4a641972129ae09e2f8c,
+        type: 3}
+      propertyPath: healthCheck
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4839326004925796478, guid: b9eb510c331e4a641972129ae09e2f8c,
         type: 3}
       propertyPath: playerSpawn
