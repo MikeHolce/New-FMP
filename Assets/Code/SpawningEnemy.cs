@@ -66,10 +66,6 @@ public class SpawningEnemy : MonoBehaviour
         {
             Debug.Log("spawn is true");
             //theZone = GameObject.FindWithTag("spawnZone").transform;
-            
-
-
-
 
             Spawn = false;
             Instantiate(doorT, T.position, Quaternion.identity);
@@ -81,12 +77,6 @@ public class SpawningEnemy : MonoBehaviour
             Instantiate(Checkpoints[rand], transform.position, Quaternion.identity);
             theZone = GameObject.FindWithTag("spawnZone").transform;
             Instantiate(Enemy, theZone.position, Quaternion.identity);          
-          
-            
-            
-
-
-
         }
 
 

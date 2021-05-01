@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using DG.Tweening;
+using DG.Tweening;
 
 public class shakeCam : MonoBehaviour
 {
@@ -44,8 +44,8 @@ public class shakeCam : MonoBehaviour
         if (shaking == true)
         {
             Debug.Log("shaking");
-            //Camera.DOComplete();
-            //Camera.DOShakePosition(duration, intensity);
+            Camera.DOComplete();
+            Camera.DOShakePosition(duration, intensity);
             gotHit = false;
         }
 

@@ -58,12 +58,18 @@ public class beamCode : MonoBehaviour
 
         if(stopRepeat == 3)
         {
-
             Debug.Log("attacking player");
             Character.playerHealth -= 1;
-            yield return new WaitForSeconds(1);
-            stopRepeat = 0;
 
+            //begin shake
+            shakeCam.gotHit = true;
+
+            yield return new WaitForSeconds(1);
+
+            //end shake
+            shakeCam.gotHit = false;
+            stopRepeat = 0;
+            StopCoroutine(attackDamage());
         }
         
     }

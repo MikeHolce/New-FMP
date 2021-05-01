@@ -104,9 +104,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8003445482370091722}
-  - component: {fileID: 4632383053064673652}
   - component: {fileID: 81247281626455498}
-  - component: {fileID: 1222256558239813711}
+  - component: {fileID: 1533317909497052241}
   m_Layer: 0
   m_Name: Alien
   m_TagString: Alien
@@ -131,36 +130,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4632383053064673652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8003445482370091726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bea6fe9be934b54f92095e59dd0de9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Checkpoint1: {fileID: 0}
-  Checkpoint2: {fileID: 0}
-  rand: 0
-  lookPlayer: 0
-  lookCheck1: 0
-  lookCheck2: 0
-  Player: {fileID: 0}
-  Enemy: {fileID: 8003445482370091722}
-  moveSpeed: 0
-  howclose: 0
-  startAttack1: 0
-  startAttack2: 0
-  beam: {fileID: 8003445482762488676}
-  beamCollide: {fileID: 8003445482837208083}
-  shoot: 0
-  move: 0
-  step: 0
-  stopRepeat: 0
 --- !u!65 &81247281626455498
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -174,22 +143,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0148413, y: 6.195925, z: 0.7257665}
   m_Center: {x: -0.014386569, y: -0.5961348, z: -0.3352626}
---- !u!54 &1222256558239813711
-Rigidbody:
+--- !u!114 &1533317909497052241
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8003445482370091726}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc5f7b2bab8c715419b927f9568794c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  stopDist: 2
+  dipDist: 1
+  player: {fileID: 0}
 --- !u!1 &8003445482762488676
 GameObject:
   m_ObjectHideFlags: 0
@@ -5013,7 +4982,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8003445482837208082
 Transform:
   m_ObjectHideFlags: 0

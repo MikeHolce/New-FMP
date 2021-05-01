@@ -76,6 +76,7 @@ public class enemyBehaviour : MonoBehaviour
     void Update()
     {
 
+
         if (lookPlayer == true)
         {
             transform.LookAt(Player);
@@ -90,8 +91,6 @@ public class enemyBehaviour : MonoBehaviour
         {
             transform.LookAt(Checkpoint2);
         }
-
-
 
         //Input.GetKeyDown("space")
         if (startAttack1 == true)
@@ -162,8 +161,6 @@ public class enemyBehaviour : MonoBehaviour
         lookPlayer = false;
         move = true;
         StopCoroutine(Attack1());
-
-
     }
 
     IEnumerator Attack2()
