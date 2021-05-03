@@ -10,6 +10,7 @@ public class AAnewEnemy : MonoBehaviour
 
     public bool canMove;
     public bool canAttack;
+    public bool coroStart;
 
     public Transform player;
     //public Transform forward;
@@ -38,6 +39,9 @@ public class AAnewEnemy : MonoBehaviour
         changeable = GameObject.FindGameObjectsWithTag("Change");
 
         canMove = true;
+        coroStart = false;
+        beam.SetActive(false);
+        beamCollide.SetActive(false);
     }
 
     // Update is called once per frame
@@ -51,46 +55,68 @@ public class AAnewEnemy : MonoBehaviour
             //move toward
             if (Vector3.Distance(transform.position, player.position) > stopDist)
             {
+                canAttack = false;
                 transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+                beam.SetActive(false);
+                beamCollide.SetActive(false);
             }
             //stop
             else if (Vector3.Distance(transform.position, player.position) < stopDist && Vector3.Distance(transform.position, player.position) > dipDist)
             {
                 transform.position = this.transform.position;
-                canMove = false;
+                canAttack = true;
+                //canMove = false;
 
             }
             //move away
             else if (Vector3.Distance(transform.position, player.position) < dipDist)
             {
+                canAttack = false;
                 transform.position = Vector3.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+                beam.SetActive(false);
+                beamCollide.SetActive(false);
             }
         }
-        else
-        {
-            canAttack = true;            
-        }
 
-        if(canAttack == true)
+
+        if (canAttack == true)
         {
             stopRepeat = 1;
+            canMove = false;
         }
 
-        if(canAttack == true && stopRepeat == 1)
+        if (canAttack == true && stopRepeat == 1)
         {
             stopRepeat = 3;
         }
-        if(stopRepeat == 3)
+
+        if (stopRepeat == 3)
         {
-            StartCoroutine(Attacking());
             stopRepeat = 5;
+            StartCoroutine(Attacking());
         }
+
+
+
+        /**
+        if (Input.GetKeyDown("1"))
+        {
+            changeThat = 1;
+        }
+        if (Input.GetKeyDown("2"))
+        {
+            changeThat = 2;
+        }
+        if (Input.GetKeyDown("3"))
+        {
+            changeThat = 3;
+        }
+
+
 
         //anticipation
         if (changeThat == 2)
         {
-
-
             for (int i = 0; i < changeable.Length; i++)
             {
                 changeable[i].GetComponent<MeshRenderer>().material = Charge;
@@ -114,32 +140,26 @@ public class AAnewEnemy : MonoBehaviour
             }
         }
     }
+    **/
+    }
 
     IEnumerator Attacking()
     {
-        //charge cannon
-        changeThat = 2;
-        yield return new WaitForSeconds(1);
-        //attack
-        changeThat = 3;
-        //Enemy.position = currentCheckpoint.position;;
-        Debug.Log("looking at player");
-        //transform.LookAt(player);
-        Debug.Log("attacking player");
-        //attack player
-        //shoot cannon
-        beam.SetActive(true); // false to hide, true to show
-        beamCollide.SetActive(true);
-        yield return new WaitForSeconds(1);
-        // reg
-        changeThat = 1;
-        beam.SetActive(false);
-        beamCollide.SetActive(false);
-        //cannon cooldown
-        yield return new WaitForSeconds(1);
-        //lookPlayer = false;
-        canMove = true;
-        stopRepeat = 1;
-        StopCoroutine(Attacking());
+        if(coroStart == false)
+        {
+            coroStart = true;
+            yield return new WaitForSeconds(1);
+            Debug.Log("start attack");
+            beam.SetActive(true);
+            beamCollide.SetActive(true);
+            yield return new WaitForSeconds(1);
+            beam.SetActive(false);
+            beamCollide.SetActive(false);
+            canMove = true;
+            StopCoroutine(Attacking());
+            Debug.Log("stop attack");
+        }
+       
     }
+
 }
