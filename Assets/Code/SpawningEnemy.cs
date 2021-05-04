@@ -6,7 +6,9 @@ public class SpawningEnemy : MonoBehaviour
 {
 
     public GameObject Enemy;
-    public Transform theZone;
+    public Transform theZone1;
+    public Transform theZone2;
+    public Transform theZone3;
 
 
     public Transform T;
@@ -25,6 +27,7 @@ public class SpawningEnemy : MonoBehaviour
 
     public int Counter;
     static public int Kills;
+    public int killsView;
 
     public int rand;
     public GameObject[] Checkpoints;
@@ -45,6 +48,7 @@ public class SpawningEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        killsView = Kills;
         if (Activate == true)
         {
             Debug.Log("activate is true");
@@ -66,10 +70,6 @@ public class SpawningEnemy : MonoBehaviour
         {
             Debug.Log("spawn is true");
             //theZone = GameObject.FindWithTag("spawnZone").transform;
-            
-
-
-
 
             Spawn = false;
             Instantiate(doorT, T.position, Quaternion.identity);
@@ -79,18 +79,17 @@ public class SpawningEnemy : MonoBehaviour
 
 
             Instantiate(Checkpoints[rand], transform.position, Quaternion.identity);
-            theZone = GameObject.FindWithTag("spawnZone").transform;
-            Instantiate(Enemy, theZone.position, Quaternion.identity);          
-          
-            
-            
-
-
-
+            theZone1 = GameObject.FindWithTag("SpawnZone1").transform;
+            theZone2 = GameObject.FindWithTag("SpawnZone2").transform;
+            theZone3 = GameObject.FindWithTag("SpawnZone3").transform;
+            Instantiate(Enemy, theZone1.position, Quaternion.identity);          
+            Instantiate(Enemy, theZone2.position, Quaternion.identity);
+            Debug.Log("enemys");
+            Instantiate(Enemy, theZone3.position, Quaternion.identity);          
         }
 
 
-        if (Kills >= 1)
+        if (Kills >= 3)
         {
             Unlock = true;
         }
@@ -123,8 +122,12 @@ public class SpawningEnemy : MonoBehaviour
     {
         if (other.name == "Player")
         {
-            Kills = 0;
+            AAnewEnemy.destroySelf = false;
             Counter = 0;
+            Activate = false;
+            Spawn = false;
+            Unlock = false;
+            Kills = 0;
             Destroy(this.gameObject);
             Destroy(GameObject.FindWithTag("Check1"));
             Destroy(GameObject.FindWithTag("Check2"));
