@@ -27,6 +27,8 @@ public class AAnewEnemy : MonoBehaviour
     public int changeThat;
     public GameObject[] changeable;
 
+    static public bool destroySelf;
+
 
 
     // Start is called before the first frame update
@@ -47,6 +49,14 @@ public class AAnewEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /**
+        if(destroySelf == true)
+        {
+            Debug.Log("heard");
+            Destroy(this.gameObject);
+        }
+        **/
+
         transform.LookAt(player);
 
         if (canMove == true)
@@ -65,6 +75,7 @@ public class AAnewEnemy : MonoBehaviour
             {
                 transform.position = this.transform.position;
                 canAttack = true;
+                coroStart = false;
                 //canMove = false;
 
             }
@@ -156,8 +167,8 @@ public class AAnewEnemy : MonoBehaviour
             beam.SetActive(false);
             beamCollide.SetActive(false);
             canMove = true;
-            StopCoroutine(Attacking());
             Debug.Log("stop attack");
+            StopCoroutine(Attacking());           
         }
        
     }

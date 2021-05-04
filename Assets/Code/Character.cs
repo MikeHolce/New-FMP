@@ -25,6 +25,7 @@ public class Character : MonoBehaviour
     public float healthCheck;
 
     static public bool mouseClicked;
+    public bool falseClick;
 
     // Start is called before the first frame update
     void Start()
@@ -78,9 +79,10 @@ public class Character : MonoBehaviour
         {
             StartCoroutine(Waiting());
             mouseClicked = true;
+            falseClick = false;
 
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && falseClick == true)
         {
             mouseClicked = false;
 
@@ -92,11 +94,13 @@ public class Character : MonoBehaviour
     IEnumerator Waiting()
     {
         attackArea.SetActive(true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.2f);
         attackArea.SetActive(false);
         yield return new WaitForSeconds(1);
-        StopCoroutine(Waiting());
         mouseClicked = false;
+        falseClick = true;
+        StopCoroutine(Waiting());
+
     } 
     
 

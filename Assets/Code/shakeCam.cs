@@ -36,7 +36,7 @@ public class shakeCam : MonoBehaviour
         }
         if (gotHit == false)
         {
-            Debug.Log("false");
+
             shook = false;
             shaking = false;
         }

@@ -9,6 +9,7 @@ public class attackCode : MonoBehaviour
     {
         if(other.tag == "Alien")
         {
+            Debug.Log("alien hit");
             Destroy(other.gameObject);
             SpawningEnemy.Kills += 1;
         }

@@ -40,7 +40,6 @@ public class beamCode : MonoBehaviour
         if (other.tag == "player")
         {
             stopRepeat = 1;
-
         }
     }
     void OnTriggerExit(Collider other)
@@ -58,12 +57,10 @@ public class beamCode : MonoBehaviour
 
         if(stopRepeat == 3)
         {
-            Debug.Log("attacking player");
             Character.playerHealth -= 1;
-
             //begin shake
             shakeCam.gotHit = true;
-
+            Debug.Log("shake camera");
             yield return new WaitForSeconds(1);
 
             //end shake
