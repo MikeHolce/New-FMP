@@ -6,14 +6,13 @@ public class AnimationState : MonoBehaviour
 
 {
     static Animator anim;
-    public GameObject Collide;
-
+   
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        Collide.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -67,23 +66,10 @@ public class AnimationState : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            StartCoroutine(Waiting());
             Character.mouseClicked = true;
             anim.SetBool("isWalking", false);
         }
 
     }
 
-    IEnumerator Waiting()
-    {
-
-        Collide.SetActive(true);
-        anim.SetBool("isWalking", false);
-        yield return new WaitForSeconds(1);
-        Collide.SetActive(false);
-        anim.SetBool("isAttacking", false);
-        yield return new WaitForSeconds(1);
-        StopCoroutine(Waiting());
-        Character.mouseClicked = false;
-    }
 }
