@@ -25,7 +25,7 @@ public class Character : MonoBehaviour
     public float healthCheck;
 
     static public bool mouseClicked;
-    public bool falseClick;
+    public bool canClick;
 
     // Start is called before the first frame update
     void Start()
@@ -74,18 +74,20 @@ public class Character : MonoBehaviour
             Move();
         }
         **/
-
-        if (Input.GetMouseButtonDown(0) && mouseClicked == false)
+        if(canClick == true)
         {
-            StartCoroutine(Waiting());
-            mouseClicked = true;
-            falseClick = false;
-
+            if (Input.GetMouseButtonDown(0) && mouseClicked == false)
+            {
+                mouseClicked = true;
+                canClick = false;
+                StartCoroutine(killTime());
+            }
         }
-        if (Input.GetMouseButtonUp(0) && falseClick == true)
-        {
-            mouseClicked = false;
 
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            canClick = true;
         }
 
 
@@ -93,16 +95,22 @@ public class Character : MonoBehaviour
 
     IEnumerator Waiting()
     {
-        attackArea.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        attackArea.SetActive(false);
-        yield return new WaitForSeconds(1);
-        mouseClicked = false;
-        falseClick = true;
-        StopCoroutine(Waiting());
+        if(canClick == true)
+        {
+            mouseClicked = false;
+            yield return new WaitForSeconds(3);
+            canClick = true;
+            StopCoroutine(Waiting());
+        }
+    }
 
-    } 
-    
+    IEnumerator killTime()
+    {
+        attackArea.SetActive(true);
+        yield return new WaitForSeconds(3);
+        attackArea.SetActive(false);
+        StopCoroutine(killTime());
+    }
 
 
 
