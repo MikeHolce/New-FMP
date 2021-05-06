@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-
+    public AudioSource punch;
 
     public CharacterController charController;
 
@@ -33,7 +33,7 @@ public class Character : MonoBehaviour
         attackArea.SetActive(false);
         //CharacterController charController = gameObject.GetComponent<CharacterController>();
 
-
+        punch = GetComponent<AudioSource>();
         //transformPlayer = true;
 
         playerHealth = 2;
@@ -78,6 +78,7 @@ public class Character : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && mouseClicked == false)
             {
+                punch.Play();
                 mouseClicked = true;
                 canClick = false;
                 StartCoroutine(killTime());
