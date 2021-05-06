@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class attackCode : MonoBehaviour
 {
+    public AudioSource alienDeath;
+
+    void Start()
+    {
+        alienDeath = GetComponent<AudioSource>();
+    }
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -11,6 +18,7 @@ public class attackCode : MonoBehaviour
         {
             Debug.Log("alien hit");
             Destroy(other.gameObject);
+            alienDeath.Play();
             SpawningEnemy.Kills += 1;
         }
     }
