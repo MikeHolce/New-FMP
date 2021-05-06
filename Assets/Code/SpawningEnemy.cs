@@ -129,8 +129,7 @@ public class SpawningEnemy : MonoBehaviour
             Unlock = false;
             Kills = 0;
             Destroy(this.gameObject);
-            Destroy(GameObject.FindWithTag("Check1"));
-            Destroy(GameObject.FindWithTag("Check2"));
+            Destroy(GameObject.FindWithTag("checkPrefab"));
             Destroy(GameObject.FindWithTag("spawnZone"));
         }
     }
