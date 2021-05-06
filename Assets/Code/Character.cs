@@ -27,6 +27,9 @@ public class Character : MonoBehaviour
     static public bool mouseClicked;
     public bool falseClick;
 
+    static Animator anim;
+    //public GameObject Collide;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -80,11 +83,18 @@ public class Character : MonoBehaviour
             StartCoroutine(Waiting());
             mouseClicked = true;
             falseClick = false;
+            Character.mouseClicked = true;
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isAttacking", true);
+
+
 
         }
         if (Input.GetMouseButtonUp(0) && falseClick == true)
         {
             mouseClicked = false;
+            anim.SetBool("isWalking", true);
+            anim.SetBool("isAttacking", false);
 
         }
 
