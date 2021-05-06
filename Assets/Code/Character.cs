@@ -79,7 +79,6 @@ public class Character : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && mouseClicked == false)
             {
                 punch.Play();
-                mouseClicked = true;
                 canClick = false;
                 StartCoroutine(killTime());
             }
@@ -94,6 +93,7 @@ public class Character : MonoBehaviour
 
     }
 
+    /**
     IEnumerator Waiting()
     {
         if(canClick == true)
@@ -104,12 +104,16 @@ public class Character : MonoBehaviour
             StopCoroutine(Waiting());
         }
     }
+    **/
 
     IEnumerator killTime()
     {
+        mouseClicked = true;
         attackArea.SetActive(true);
         yield return new WaitForSeconds(3);
         attackArea.SetActive(false);
+        canClick = true;
+        mouseClicked = false;
         StopCoroutine(killTime());
     }
 
