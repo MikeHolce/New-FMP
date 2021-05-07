@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-
+    public AudioSource punch;
 
     public CharacterController charController;
 
@@ -25,7 +25,7 @@ public class Character : MonoBehaviour
     public float healthCheck;
 
     static public bool mouseClicked;
-    public bool falseClick;
+    public bool canClick;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,7 @@ public class Character : MonoBehaviour
         attackArea.SetActive(false);
         //CharacterController charController = gameObject.GetComponent<CharacterController>();
 
-
+        punch = GetComponent<AudioSource>();
         //transformPlayer = true;
 
         playerHealth = 2;
@@ -74,35 +74,48 @@ public class Character : MonoBehaviour
             Move();
         }
         **/
-
-        if (Input.GetMouseButtonDown(0) && mouseClicked == false)
+        if(canClick == true)
         {
-            StartCoroutine(Waiting());
-            mouseClicked = true;
-            falseClick = false;
-
+            if (Input.GetMouseButtonDown(0) && mouseClicked == false)
+            {
+                punch.Play();
+                canClick = false;
+                StartCoroutine(killTime());
+            }
         }
-        if (Input.GetMouseButtonUp(0) && falseClick == true)
-        {
-            mouseClicked = false;
 
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            canClick = true;
         }
 
 
     }
 
+    /**
     IEnumerator Waiting()
     {
-        attackArea.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        attackArea.SetActive(false);
-        yield return new WaitForSeconds(1);
-        mouseClicked = false;
-        falseClick = true;
-        StopCoroutine(Waiting());
+        if(canClick == true)
+        {
+            mouseClicked = false;
+            yield return new WaitForSeconds(3);
+            canClick = true;
+            StopCoroutine(Waiting());
+        }
+    }
+    **/
 
-    } 
-    
+    IEnumerator killTime()
+    {
+        mouseClicked = true;
+        attackArea.SetActive(true);
+        yield return new WaitForSeconds(3);
+        attackArea.SetActive(false);
+        canClick = true;
+        mouseClicked = false;
+        StopCoroutine(killTime());
+    }
 
 
 
