@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public bool liftMouse;
+    public bool punchAnim;
+
     public AudioSource punch;
 
     public CharacterController charController;
@@ -37,6 +40,8 @@ public class Character : MonoBehaviour
         //transformPlayer = true;
 
         playerHealth = 2;
+
+        liftMouse = false;
     }
 
 
@@ -74,12 +79,20 @@ public class Character : MonoBehaviour
             Move();
         }
         **/
-        if(canClick == true)
+
+        if(punchAnim == true)
         {
-            if (Input.GetMouseButtonDown(0) && mouseClicked == false)
+            punch.Play();
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (canClick == true)
             {
-                punch.Play();
+                liftMouse = false;
                 canClick = false;
+                punchAnim = true;
+                
                 StartCoroutine(killTime());
             }
         }
@@ -87,7 +100,10 @@ public class Character : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            canClick = true;
+            if(liftMouse == true)
+            {
+                canClick = true;
+            }           
         }
 
 
@@ -107,13 +123,12 @@ public class Character : MonoBehaviour
     **/
 
     IEnumerator killTime()
-    {
-        mouseClicked = true;
+    {       
         attackArea.SetActive(true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         attackArea.SetActive(false);
         canClick = true;
-        mouseClicked = false;
+        liftMouse = true;
         StopCoroutine(killTime());
     }
 

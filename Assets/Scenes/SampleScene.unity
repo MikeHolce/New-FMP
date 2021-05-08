@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.045011736, g: 0.038296845, b: 0.032044135, a: 1}
+  m_IndirectSpecularColor: {r: 0.04491198, g: 0.038296845, b: 0.03205556, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3954,12 +3954,12 @@ GameObject:
   - component: {fileID: 398831217}
   - component: {fileID: 398831216}
   m_Layer: 0
-  m_Name: soundCube
+  m_Name: sound_siren
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &398831216
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10680,12 +10680,12 @@ GameObject:
   - component: {fileID: 1132610923}
   - component: {fileID: 1132610922}
   m_Layer: 0
-  m_Name: soundCube (1)
+  m_Name: sound_music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1132610922
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12294,12 +12294,12 @@ GameObject:
   - component: {fileID: 1257353746}
   - component: {fileID: 1257353745}
   m_Layer: 0
-  m_Name: soundCube
+  m_Name: sound_riot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1257353745
 AudioSource:
   m_ObjectHideFlags: 0
@@ -35437,7 +35437,7 @@ PrefabInstance:
     - target: {fileID: 4839326005033366941, guid: b9eb510c331e4a641972129ae09e2f8c,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4839326005033366943, guid: b9eb510c331e4a641972129ae09e2f8c,
         type: 3}
