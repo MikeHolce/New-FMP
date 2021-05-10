@@ -25,6 +25,7 @@ public class CollectUICode : MonoBehaviour
         }
         if (other.name == "TaskTrigger_OFF")
         {
+            TimerUp.instance.BeginTimer();
             Canvas1.enabled = false;
         }
     }
