@@ -1,40 +1,55 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class TimerUp : MonoBehaviour
 {
-    public Text timerText;
+    public static TimerUp instance;
 
-    private float secondsCount;
-    private int minuteCount;
-    private int hourCount;
-    // Start is called before the first frame update
-    void Start()
+
+    public Text timeCounter;
+
+    private TimeSpan timePlaying;
+    private bool timerGoing;
+
+    private float elapsedTime;
+
+    private void Awake()
     {
-
+        instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        UpdateTimerUI();
+        timeCounter.text = "00:00:00";
+        timerGoing = false;
     }
-    public void UpdateTimerUI()
+
+    public void BeginTimer()
     {
-        //set timer UI
-        secondsCount += Time.deltaTime;
-        timerText.text = hourCount + ":" + minuteCount + ":" + (int)secondsCount + "";
-        if (secondsCount >= 60)
+        timerGoing = true;
+        elapsedTime = 0f;
+
+        StartCoroutine(UpdateTimer());
+    }
+
+    public void EndTimer()
+    {
+        timerGoing = false;
+    }
+    private IEnumerator UpdateTimer()
+    {
+        while (timerGoing)
         {
-            minuteCount++;
-            secondsCount = 0;
-        }
-        else if (minuteCount >= 60)
-        {
-            hourCount++;
-            minuteCount = 0;
+            elapsedTime += Time.deltaTime;
+            timePlaying = TimeSpan.FromSeconds(elapsedTime);
+            string timePlayingStr = timePlaying.ToString("mm':'ss':ff");
+            timeCounter.text = timePlayingStr;
+
+            yield return null;
         }
     }
 }
