@@ -159,11 +159,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0ca520a38d1454eb0e9ae400c9be8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  punch: {fileID: 0}
   charController: {fileID: 0}
   Player: {fileID: 0}
   attackArea: {fileID: 0}
   healthCheck: 0
-  falseClick: 0
+  canClick: 0
 --- !u!114 &3197604851867205922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,26 +478,76 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7165900025204707165, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c637436c2b18034f88a3a20d8fb9959, type: 2}
+    - target: {fileID: -6462187816223702749, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
+        type: 3}
+      propertyPath: m_Name
+      value: undershirt
+      objectReference: {fileID: 0}
+    - target: {fileID: -6300565361247859309, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3a023949ced683444911ad218ae2a64c, type: 2}
+    - target: {fileID: -4549757445259455984, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
+        type: 3}
+      propertyPath: m_Name
+      value: hands
+      objectReference: {fileID: 0}
+    - target: {fileID: -2817356445302215601, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
+        type: 3}
+      propertyPath: m_Name
+      value: pantys
+      objectReference: {fileID: 0}
+    - target: {fileID: -1225921544384071779, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
+        type: 3}
+      propertyPath: m_Name
+      value: t shirt
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
         type: 3}
       propertyPath: m_Name
       value: prisoner2@Breathing Idle
       objectReference: {fileID: 0}
+    - target: {fileID: 1351218874362418230, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3a023949ced683444911ad218ae2a64c, type: 2}
+    - target: {fileID: 2915312557631874758, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
+        type: 3}
+      propertyPath: m_Name
+      value: neck
+      objectReference: {fileID: 0}
+    - target: {fileID: 3390841464314828626, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
+        type: 3}
+      propertyPath: m_Name
+      value: eyebrowleft
+      objectReference: {fileID: 0}
     - target: {fileID: 4188633879531365009, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: da3ce08b71dd9154c98d7fbe4e5f92c9, type: 2}
+      objectReference: {fileID: 2100000, guid: 236c1010a6a64324e9f0039611f37dd1, type: 2}
     - target: {fileID: 7246403050254064203, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: da3ce08b71dd9154c98d7fbe4e5f92c9, type: 2}
+      objectReference: {fileID: 2100000, guid: cd87a3f0dd6921e43968430c91311693, type: 2}
     - target: {fileID: 8207887933004770844, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: da3ce08b71dd9154c98d7fbe4e5f92c9, type: 2}
+      objectReference: {fileID: 2100000, guid: 736a14ed70f743b4fb35beaaf96e1a33, type: 2}
+    - target: {fileID: 8545440442327029363, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 68d13f9a81e4e784a83ea8179b53c315, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c7d8e8984e2b4144ab5d94bc0e03c4e, type: 3}
 --- !u!4 &5353490988161708566 stripped

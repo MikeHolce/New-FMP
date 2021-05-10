@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public bool liftMouse;
+    public bool punchAnim;
+
+
     public AudioSource punch;
 
     public CharacterController charController;
@@ -37,6 +41,11 @@ public class Character : MonoBehaviour
         //transformPlayer = true;
 
         playerHealth = 2;
+
+        liftMouse = false;
+        canClick = true;
+
+        punchAnim = false;
     }
 
 
@@ -67,27 +76,31 @@ public class Character : MonoBehaviour
         {
             Debug.Log("player died");
         }
+  
 
-        /**
-        if (Input.anyKey)
-        {
-            Move();
-        }
-        **/
         if(canClick == true)
         {
-            if (Input.GetMouseButtonDown(0) && mouseClicked == false)
+            if (Input.GetMouseButtonDown(0))
             {
-                punch.Play();
+                mouseClicked = true;
+                Debug.Log("canClik");
+                liftMouse = false;
                 canClick = false;
                 StartCoroutine(killTime());
             }
         }
-
-
         if (Input.GetMouseButtonUp(0))
         {
-            canClick = true;
+            if(liftMouse == true)
+            {
+                canClick = true;
+            }           
+        }
+
+        if(punchAnim == true)
+        {
+            punch.Play();
+            punchAnim = false;
         }
 
 
@@ -108,11 +121,14 @@ public class Character : MonoBehaviour
 
     IEnumerator killTime()
     {
-        mouseClicked = true;
+        
         attackArea.SetActive(true);
-        yield return new WaitForSeconds(3);
+        punchAnim = true;
+        yield return new WaitForSeconds(0.2f);
         attackArea.SetActive(false);
+        yield return new WaitForSeconds(1);
         canClick = true;
+        liftMouse = true;
         mouseClicked = false;
         StopCoroutine(killTime());
     }

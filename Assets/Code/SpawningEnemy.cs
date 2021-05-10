@@ -23,7 +23,7 @@ public class SpawningEnemy : MonoBehaviour
 
     public bool Activate;
     public bool Spawn;
-    public bool Unlock;
+    static public bool Unlock;
 
     public int Counter;
     static public int Kills;
@@ -94,14 +94,21 @@ public class SpawningEnemy : MonoBehaviour
             Unlock = true;
         }
 
+        if (Kills <= 2)
+        {
+            //winSound.count = 0;
+        }
+
 
         if (Unlock == true)
         {
+            winSound.count = 2;
             Destroy(GameObject.FindWithTag("Door"));
             Spawn = false;
             Unlock = false;
 
         }
+
 
 
     }
