@@ -108,6 +108,11 @@ public class AAnewEnemy : MonoBehaviour
         }
 
 
+        if(Character.playerHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+
 
         /**
         if (Input.GetKeyDown("1"))

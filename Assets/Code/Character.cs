@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
     public bool liftMouse;
     public bool punchAnim;
 
+
     public AudioSource punch;
 
     public CharacterController charController;
@@ -42,6 +43,9 @@ public class Character : MonoBehaviour
         playerHealth = 2;
 
         liftMouse = false;
+        canClick = true;
+
+        punchAnim = false;
     }
 
 
@@ -72,38 +76,31 @@ public class Character : MonoBehaviour
         {
             Debug.Log("player died");
         }
+  
 
-        /**
-        if (Input.anyKey)
+        if(canClick == true)
         {
-            Move();
-        }
-        **/
-
-        if(punchAnim == true)
-        {
-            punch.Play();
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (canClick == true)
+            if (Input.GetMouseButtonDown(0))
             {
+                mouseClicked = true;
+                Debug.Log("canClik");
                 liftMouse = false;
                 canClick = false;
-                punchAnim = true;
-                
                 StartCoroutine(killTime());
             }
         }
-
-
         if (Input.GetMouseButtonUp(0))
         {
             if(liftMouse == true)
             {
                 canClick = true;
             }           
+        }
+
+        if(punchAnim == true)
+        {
+            punch.Play();
+            punchAnim = false;
         }
 
 
@@ -123,12 +120,16 @@ public class Character : MonoBehaviour
     **/
 
     IEnumerator killTime()
-    {       
+    {
+        
         attackArea.SetActive(true);
-        yield return new WaitForSeconds(1);
+        punchAnim = true;
+        yield return new WaitForSeconds(0.2f);
         attackArea.SetActive(false);
+        yield return new WaitForSeconds(1);
         canClick = true;
         liftMouse = true;
+        mouseClicked = false;
         StopCoroutine(killTime());
     }
 

@@ -23,48 +23,67 @@ public class AnimationState : MonoBehaviour
 
         //Walk
 
-        if (Input.GetKey("w"))
-        {
-            anim.SetBool("isWalking", true);
-        }
 
-        if (Input.GetKeyUp("w"))
+        if(Character.mouseClicked == true)
         {
+            anim.SetBool("isAttacking", true);
             anim.SetBool("isWalking", false);
 
         }
 
-        if (Input.GetKey("a"))
+
+        if (Character.mouseClicked == false)
         {
-            anim.SetBool("isWalking", true);
+            anim.SetBool("isAttacking", false);
+
+
+            if (Input.GetKey("w"))
+            {
+                anim.SetBool("isWalking", true);
+            }
+
+            if (Input.GetKeyUp("w"))
+            {
+                anim.SetBool("isWalking", false);
+
+            }
+
+            if (Input.GetKey("a"))
+            {
+                anim.SetBool("isWalking", true);
+            }
+
+            if (Input.GetKeyUp("a"))
+            {
+                anim.SetBool("isWalking", false);
+            }
+
+
+            if (Input.GetKey("s"))
+            {
+                anim.SetBool("isWalking", true);
+            }
+
+            if (Input.GetKeyUp("s"))
+            {
+                anim.SetBool("isWalking", false);
+            }
+
+            if (Input.GetKey("d"))
+            {
+                anim.SetBool("isWalking", true);
+            }
+
+            if (Input.GetKeyUp("d"))
+            {
+                anim.SetBool("isWalking", false);
+            }
+
         }
 
-        if (Input.GetKeyUp("a"))
-        {
-            anim.SetBool("isWalking", false);
-        }
 
 
-        if (Input.GetKey("s"))
-        {
-            anim.SetBool("isWalking", true);
-        }
-
-        if (Input.GetKeyUp("s"))
-        {
-            anim.SetBool("isWalking", false);
-        }
-
-        if (Input.GetKey("d"))
-        {
-            anim.SetBool("isWalking", true);
-        }
-
-        if (Input.GetKeyUp("d"))
-        {
-            anim.SetBool("isWalking", false);
-        }
-
+        /**
        if (Input.GetMouseButtonDown(0))
         {
            //StartCoroutine(Waiting());
@@ -82,7 +101,7 @@ public class AnimationState : MonoBehaviour
         }
 
     }
-    /**
+
     IEnumerator Waiting()
     {
 
@@ -96,4 +115,7 @@ public class AnimationState : MonoBehaviour
         Character.mouseClicked = false;
     }
     **/
+
+    }
 }
+
