@@ -12920,6 +12920,7 @@ GameObject:
   - component: {fileID: 1320795014}
   - component: {fileID: 1320795013}
   - component: {fileID: 1320795012}
+  - component: {fileID: 1320795016}
   m_Layer: 5
   m_Name: Timer Canvas
   m_TagString: Untagged
@@ -13010,6 +13011,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1320795016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320795011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed260a51f492b6a4fb4775f3a4c98082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 849568158}
 --- !u!1 &1326811986 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2390068996084074497, guid: b2c78f189ab24934c80bb69a92cb7ae0,
