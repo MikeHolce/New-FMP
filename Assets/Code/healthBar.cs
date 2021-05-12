@@ -67,10 +67,6 @@ public class healthBar : MonoBehaviour
             HealthBarImage.sprite = HealthBar6;
         }
 
-        if (Input.GetKeyDown("space"))
-        {
-            Character.playerHealth -= 1;
-        }
         if (playerHealth >= 1)
         {
             Debug.Log("player died");
