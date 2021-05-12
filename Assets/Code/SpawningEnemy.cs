@@ -6,6 +6,7 @@ public class SpawningEnemy : MonoBehaviour
 {
 
     public GameObject Enemy;
+    public GameObject pigDude;
     public Transform theZone1;
     public Transform theZone2;
     public Transform theZone3;
@@ -83,7 +84,7 @@ public class SpawningEnemy : MonoBehaviour
             theZone2 = GameObject.FindWithTag("SpawnZone2").transform;
             theZone3 = GameObject.FindWithTag("SpawnZone3").transform;
             Instantiate(Enemy, theZone1.position, Quaternion.identity);          
-            Instantiate(Enemy, theZone2.position, Quaternion.identity);
+            Instantiate(pigDude, theZone2.position, Quaternion.identity);
             Debug.Log("enemys");
             Instantiate(Enemy, theZone3.position, Quaternion.identity);          
         }

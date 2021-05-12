@@ -691,6 +691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 8003445482370091726, guid: acde4697753d327469e1aeff0b08851b, type: 3}
+  pigDude: {fileID: 8003445482370091726, guid: 196f3c39f01f42d45a930b17905bd169, type: 3}
   theZone1: {fileID: 6943553809124486085, guid: 228741ff178daaf41ad15128d39af172,
     type: 3}
   theZone2: {fileID: 8973937869494357142, guid: ca892b7b3e59f7c44bab130ae73b0c7f,
@@ -961,6 +962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5071829240876129210}
+  - component: {fileID: 8725903046291323820}
   m_Layer: 0
   m_Name: LB
   m_TagString: Rooms
@@ -999,6 +1001,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8725903046291323820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8089989498997977242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a08d2ccc153b004e8d91e9287b04c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &1380231042987657184
 BoxCollider:
   m_ObjectHideFlags: 0
