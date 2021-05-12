@@ -21,24 +21,24 @@ public class turnCode : MonoBehaviour
     {
         // only needed if animations dont workm for all directions
 
-
-        
-        if (Input.GetKey("w"))
+        if(Character.move == true)
         {
-            transform.LookAt(forward);
-        }
-        if (Input.GetKey("a"))
-        {
-            transform.LookAt(left);
-        }
-        if (Input.GetKey("s"))
-        {
-            transform.LookAt(backward);
-        }
-        if (Input.GetKey("d"))
-        {
-            transform.LookAt(right);
-        }
-    
+            if (Input.GetKey("w"))
+            {
+                transform.LookAt(forward);
+            }
+            if (Input.GetKey("a"))
+            {
+                transform.LookAt(left);
+            }
+            if (Input.GetKey("s"))
+            {
+                transform.LookAt(backward);
+            }
+            if (Input.GetKey("d"))
+            {
+                transform.LookAt(right);
+            }
+        }   
     }
 }

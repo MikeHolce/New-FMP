@@ -102,7 +102,7 @@ public class SpawningEnemy : MonoBehaviour
 
         if (Unlock == true)
         {
-            winSound.count = 2;
+            winSound.play = true;
             Destroy(GameObject.FindWithTag("Door"));
             Spawn = false;
             Unlock = false;

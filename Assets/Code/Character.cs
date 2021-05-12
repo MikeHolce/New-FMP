@@ -44,9 +44,13 @@ public class Character : MonoBehaviour
     static public bool mouseClicked;
     public bool canClick;
 
+    static public bool move;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        move = true;
         cap1.SetActive(false);
         cap2.SetActive(false);
         cap3.SetActive(false);
@@ -58,8 +62,6 @@ public class Character : MonoBehaviour
         blue3.SetActive(true);
         blue4.SetActive(true);
         blue5.SetActive(true);
-
-
 
         attackArea.SetActive(false);
         //CharacterController charController = gameObject.GetComponent<CharacterController>();
@@ -79,15 +81,43 @@ public class Character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxisRaw("HorizontalKey");
-        float vertical = Input.GetAxisRaw("VerticalKey");
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-
-        if(direction.magnitude >= 0.1f)
+        if(move == true)
         {
-            charController.Move(direction * moveSpeed * Time.deltaTime);
-        }
+            float horizontal = Input.GetAxisRaw("HorizontalKey");
+            float vertical = Input.GetAxisRaw("VerticalKey");
+            Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
+            if (direction.magnitude >= 0.1f)
+            {
+                charController.Move(direction * moveSpeed * Time.deltaTime);
+            }
+
+            if (canClick == true)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    mouseClicked = true;
+                    Debug.Log("canClik");
+                    liftMouse = false;
+                    canClick = false;
+                    StartCoroutine(killTime());
+                }
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (liftMouse == true)
+                {
+                    canClick = true;
+                }
+            }
+
+            if (punchAnim == true)
+            {
+                punch.Play();
+                punchAnim = false;
+            }
+        }
+        
         if (pickupCanvas.spawnPlayer == true)
         {
             Debug.Log("spawn the player");
@@ -95,42 +125,12 @@ public class Character : MonoBehaviour
             pickupCanvas.spawnPlayer = false;
         }
 
-
         healthCheck = playerHealth;
-
 
         if (playerHealth <= 1)
         {
             Debug.Log("player died");
         }
-  
-
-        if(canClick == true)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                mouseClicked = true;
-                Debug.Log("canClik");
-                liftMouse = false;
-                canClick = false;
-                StartCoroutine(killTime());
-            }
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            if(liftMouse == true)
-            {
-                canClick = true;
-            }           
-        }
-
-        if(punchAnim == true)
-        {
-            punch.Play();
-            punchAnim = false;
-        }
-
-
     }
 
     /**

@@ -4,24 +4,16 @@ using UnityEngine;
 
 public class winSound : MonoBehaviour
 {
+    static public bool play;
+    public bool start;
 
-
-    static public int count;
-    public bool play;
-    public bool check;
-    public AudioSource win;
-
+    public GameObject music;
 
     // Start is called before the first frame update
     void Start()
     {
         play = false;
-        check = true;
-
-        count = 0;
-
-        win = GetComponent<AudioSource>();
-
+        music.SetActive(false);
     }
 
     // Update is called once per frame
@@ -29,24 +21,30 @@ public class winSound : MonoBehaviour
     {
         
 
-        if(count >= 1 && check == true)
-        {
-            play = true;
-
-
-        }
-
 
 
         if(play == true)
         {
-            check = false;
-            win.Play();
-            count = 0;
+            start = true;
+        }
+
+        if(start == true)
+        {
+            StartCoroutine(playing());
         }
 
 
     }
 
+
+    IEnumerator playing()
+    {
+        play = false;
+        start = false;
+        music.SetActive(true);
+        yield return new WaitForSeconds(1.3f);
+        music.SetActive(false);
+        StopCoroutine(playing());
+    }
 
 }

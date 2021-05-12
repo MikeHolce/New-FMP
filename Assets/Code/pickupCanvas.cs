@@ -96,6 +96,7 @@ public class pickupCanvas : MonoBehaviour
         //teleport destroyer
         teleDestroy = true;
         //freeze move
+        Character.move = false;
         yield return new WaitForSeconds(0.5f);
         //nothing
         lootTimer.enabled = false;
@@ -103,6 +104,7 @@ public class pickupCanvas : MonoBehaviour
         spawnPlayer = true;
 
         //unfreeze move
+        Character.move = true;
 
 
         StopCoroutine(Timing());

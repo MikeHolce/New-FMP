@@ -19,103 +19,72 @@ public class AnimationState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetBool("isWalking", false);
-
-        //Walk
 
 
-        if(Character.mouseClicked == true)
+        if(Character.move == true)
         {
-            anim.SetBool("isAttacking", true);
             anim.SetBool("isWalking", false);
 
-        }
+            //Walk
 
 
-        if (Character.mouseClicked == false)
-        {
-            anim.SetBool("isAttacking", false);
-
-
-            if (Input.GetKey("w"))
+            if (Character.mouseClicked == true)
             {
-                anim.SetBool("isWalking", true);
-            }
-
-            if (Input.GetKeyUp("w"))
-            {
+                anim.SetBool("isAttacking", true);
                 anim.SetBool("isWalking", false);
 
             }
 
-            if (Input.GetKey("a"))
+
+            if (Character.mouseClicked == false)
             {
-                anim.SetBool("isWalking", true);
+                anim.SetBool("isAttacking", false);
+
+
+                if (Input.GetKey("w"))
+                {
+                    anim.SetBool("isWalking", true);
+                }
+
+                if (Input.GetKeyUp("w"))
+                {
+                    anim.SetBool("isWalking", false);
+
+                }
+
+                if (Input.GetKey("a"))
+                {
+                    anim.SetBool("isWalking", true);
+                }
+
+                if (Input.GetKeyUp("a"))
+                {
+                    anim.SetBool("isWalking", false);
+                }
+
+
+                if (Input.GetKey("s"))
+                {
+                    anim.SetBool("isWalking", true);
+                }
+
+                if (Input.GetKeyUp("s"))
+                {
+                    anim.SetBool("isWalking", false);
+                }
+
+                if (Input.GetKey("d"))
+                {
+                    anim.SetBool("isWalking", true);
+                }
+
+                if (Input.GetKeyUp("d"))
+                {
+                    anim.SetBool("isWalking", false);
+                }
+
             }
-
-            if (Input.GetKeyUp("a"))
-            {
-                anim.SetBool("isWalking", false);
-            }
-
-
-            if (Input.GetKey("s"))
-            {
-                anim.SetBool("isWalking", true);
-            }
-
-            if (Input.GetKeyUp("s"))
-            {
-                anim.SetBool("isWalking", false);
-            }
-
-            if (Input.GetKey("d"))
-            {
-                anim.SetBool("isWalking", true);
-            }
-
-            if (Input.GetKeyUp("d"))
-            {
-                anim.SetBool("isWalking", false);
-            }
-
         }
-
-
-
-        /**
-       if (Input.GetMouseButtonDown(0))
-        {
-           //StartCoroutine(Waiting());
-           //Character.mouseClicked = true;
-           anim.SetBool("isWalking", false);
-            anim.SetBool("isAttacking", true);
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            //StartCoroutine(Waiting());
-            //Character.mouseClicked = true;
-            anim.SetBool("isWalking", false);
-            anim.SetBool("isAttacking", false);
-        }
-
-    }
-
-    IEnumerator Waiting()
-    {
-
-        Collide.SetActive(true);
-        anim.SetBool("isWalking", false);
-        yield return new WaitForSeconds(1);
-        Collide.SetActive(false);
-        anim.SetBool("isAttacking", false);
-        yield return new WaitForSeconds(1);
-        StopCoroutine(Waiting());
-        Character.mouseClicked = false;
-    }
-    **/
-
     }
 }
 
