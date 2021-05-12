@@ -31,6 +31,19 @@ public class AAnewEnemy : MonoBehaviour
 
 
 
+    public GameObject cap1;
+    public GameObject cap2;
+    public GameObject cap3;
+    public GameObject cap4;
+    public GameObject cap5;
+
+
+    public GameObject blue1;
+    public GameObject blue2;
+    public GameObject blue3;
+    public GameObject blue4;
+    public GameObject blue5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +57,19 @@ public class AAnewEnemy : MonoBehaviour
         coroStart = false;
         beam.SetActive(false);
         beamCollide.SetActive(false);
+
+
+        cap1.SetActive(false);
+        cap2.SetActive(false);
+        cap3.SetActive(false);
+        cap4.SetActive(false);
+        cap5.SetActive(false);
+
+        blue1.SetActive(false);
+        blue2.SetActive(false);
+        blue3.SetActive(false);
+        blue4.SetActive(false);
+        blue5.SetActive(false);
     }
 
     // Update is called once per frame
@@ -164,11 +190,52 @@ public class AAnewEnemy : MonoBehaviour
         if(coroStart == false)
         {
             coroStart = true;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.2f);
+            //1
+            cap1.SetActive(true);
+            yield return new WaitForSeconds(0.2f);
+            //2
+            cap2.SetActive(true);
+            yield return new WaitForSeconds(0.2f);
+            //3
+            cap3.SetActive(true);
+            yield return new WaitForSeconds(0.2f);
+            //4
+            cap4.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            //5
+            cap5.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            cap1.SetActive(false);
+            cap2.SetActive(false);
+            cap3.SetActive(false);
+            cap4.SetActive(false);
+            cap5.SetActive(false);
+
+            blue1.SetActive(true);
+            blue2.SetActive(true);
+            blue3.SetActive(true);
+            blue4.SetActive(true);
+            blue5.SetActive(true);
+
             Debug.Log("start attack");
             beam.SetActive(true);
             beamCollide.SetActive(true);
             yield return new WaitForSeconds(1);
+
+
+            cap1.SetActive(false);
+            cap2.SetActive(false);
+            cap3.SetActive(false);
+            cap4.SetActive(false);
+            cap5.SetActive(false);
+
+            blue1.SetActive(false);
+            blue2.SetActive(false);
+            blue3.SetActive(false);
+            blue4.SetActive(false);
+            blue5.SetActive(false);
+
             beam.SetActive(false);
             beamCollide.SetActive(false);
             canMove = true;
