@@ -23,7 +23,7 @@ public class BossCode : MonoBehaviour
         if (other.tag == "Exit")
         {
             Debug.Log("leave");
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(6);
         }
     }
 }
