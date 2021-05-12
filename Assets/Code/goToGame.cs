@@ -18,6 +18,6 @@ public class goToGame : MonoBehaviour
     }
     public void LoadSampleScene()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 }
